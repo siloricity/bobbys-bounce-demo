@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d1vcqjqs2grh1"]
+
+[ext_resource type="Script" uid="uid://2x74nh2mlvqb" path="res://ghost.gd" id="1_6attn"]
+[ext_resource type="Texture2D" uid="uid://dosjvlheqmwrs" path="res://assets/bobby.svg" id="1_v5pp4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v5pp4"]
+friction = 0.05
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vcwjl"]
+radius = 15.0
+
+[node name="ghost" type="RigidBody2D" unique_id=926755070]
+modulate = Color(1, 1, 1, 0.42352942)
+collision_layer = 4
+physics_material_override = SubResource("PhysicsMaterial_v5pp4")
+freeze = true
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_6attn")
+sling_multiplier = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1273288737]
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_vcwjl")
+debug_color = Color(1, 1, 1, 0.14509805)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1271427952]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_v5pp4")

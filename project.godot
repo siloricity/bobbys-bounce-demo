@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="bobby's bounce"
 run/main_scene="uid://bbrs51ti3qr22"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=120
 boot_splash/bg_color=Color(0.08627451, 0.08627451, 0.3764706, 1)
 config/icon="uid://drc8mw1a5hoe1"
@@ -35,6 +39,12 @@ click={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="tile"
+2d_physics/layer_2="bobby"
+2d_physics/layer_3="ghost"
 
 [rendering]
 

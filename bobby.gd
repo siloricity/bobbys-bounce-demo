@@ -1,25 +1,38 @@
 extends RigidBody2D
 @export var sling_multiplier:float
 @export var max_sling:int
+@export var ghost: PackedScene
+@export var ghost_length: float
 var released := false
-var startpos: Vector2
+var dead := false
 # rotate the sling
 func _process(_delta):
 	var mouse = get_global_mouse_position()
-	if not Input.is_action_pressed("click"): pass
-	else:
-		if not Input.is_action_just_pressed("click"): pass
+	var vel: Vector2 = sling_multiplier*(self.global_position-mouse)
+	$Line2D.rotation = -self.rotation
+	$Line2D.points[1] = $LineGuidance.position
+	#holding
+	if Input.is_action_pressed("click"):
+		if dead == true: pass
 		else:
-			startpos = mouse
-		$star.show()
-		self.look_at(mouse)
-		self.rotation_degrees -= 90
-		$star.global_position = mouse
-	if not Input.is_action_just_released("click"): pass
-	else:
-		$star.hide()
-		self.freeze = false
-		self.linear_velocity = sling_multiplier*(self.global_position-mouse)
+			$star.show()
+			$Line2D.show()
+			$LineGuidance.position=(mouse-self.global_position).limit_length(max_sling/2)
+			self.look_at(mouse)
+			self.rotation_degrees -= 90
+			self.linear_velocity = Vector2.ZERO
+			$star.global_position = mouse
+	#release
+	if Input.is_action_just_released("click"):
+		if dead == true: pass
+		else:
+			$star.hide()
+			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			tween.tween_property($LineGuidance,"position",Vector2.ZERO,0.1)
+			self.freeze = false
+			self.gravity_scale = 0
+			self.linear_velocity = vel.limit_length(max_sling)
+			self.gravity_scale = 1
 # bounce or die
 func _on_body_entered(body: Node) -> void:
 	if body.name != "TileHazards":
@@ -34,6 +47,7 @@ func bump_sound(pitch):
 # death sfx
 func EXPLODES():
 	self.sleeping = true
+	dead = true
 	$Sprite2D.modulate.a = 0
 	$DeathFX.emitting = true
 	$DeathSound.play()
