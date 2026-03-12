@@ -1,5 +1,5 @@
 extends Node2D
-var done: int = 0
+var progress: int = 0
 func _ready():
 	$bobby.dead = true
 	# intro sequence animation
@@ -11,18 +11,18 @@ func _ready():
 	tween.parallel().tween_property($welcome2,"position:y",280,1)
 	tween.tween_callback(func():
 		$bobby.dead = false # my first lambda function! half life reference
-		done = 1)
+		progress = 1)
 func _input(_InputEvent):
 	if Input.is_action_just_pressed("click"):
-			if done == 1: # fade out intro sequence
+			if progress == 1: # fade out intro sequence
 				var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 				tween.tween_property($welcome,"modulate:a",0,1.2)
 				tween.parallel().tween_property($welcome2,"modulate:a",0,1.2)
 				$Timer2.start()
 	if Input.is_action_just_released("click"):
-		if $Timer2.is_stopped() and done == 2: # open the finish
+		if $Timer2.is_stopped() and progress == 2: # open the finish
 			if Input.is_action_just_released("click"):
-				done = 3
+				progress = 3
 				var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 				tween.tween_property($welcome,"modulate:a",0,1.2)
 				tween.tween_interval(1)
@@ -38,7 +38,7 @@ func _on_timer_2_timeout() -> void:
 	$welcome.text = "drag to fling bobby around"
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property($welcome,"modulate:a",1,1.2)
-	tween.tween_callback(func(): done = 2)
+	tween.tween_callback(func(): progress = 2)
 # spawn ghosts
 func _on_timer_timeout() -> void:
 	var ghost = $bobby.ghost.instantiate()
@@ -47,4 +47,8 @@ func _on_timer_timeout() -> void:
 # finish box signal
 func _on_finish_body_entered(body: Node2D) -> void:
 	if body == $bobby:
-		print("yo")
+		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property($complete,"position:y",330,1)
+# next level
+func _on_comp_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://title.tscn")
