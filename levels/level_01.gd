@@ -35,8 +35,8 @@ func _input(_InputEvent):
 	if Input.is_action_just_released("click"):
 		$Timer.stop()
 func _on_timer_2_timeout() -> void:
-	$welcome.text = "drag to fling bobby around"
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_callback(func(): $welcome.text = "drag to fling bobby around")
 	tween.tween_property($welcome,"modulate:a",1,1.2)
 	tween.tween_callback(func(): progress = 2)
 # spawn ghosts
@@ -51,4 +51,4 @@ func _on_finish_body_entered(body: Node2D) -> void:
 		tween.tween_property($complete,"position:y",330,1)
 # next level
 func _on_comp_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://title.tscn")
+	get_tree().change_scene_to_file("res://levels/level02.tscn")

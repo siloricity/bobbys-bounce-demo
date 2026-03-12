@@ -4,6 +4,7 @@ extends RigidBody2D
 @export var ghost: PackedScene
 var released := false
 var dead := false
+signal death
 # rotate the sling
 func _process(_delta):
 	var mouse = get_global_mouse_position()
@@ -47,6 +48,7 @@ func bump_sound(pitch):
 func EXPLODES():
 	self.sleeping = true
 	dead = true
+	death.emit()
 	$Sprite2D.modulate.a = 0
 	$DeathFX.emitting = true
 	$DeathSound.play()
