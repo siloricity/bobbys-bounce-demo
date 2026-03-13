@@ -49,7 +49,7 @@ func _on_finish_body_entered(body: Node2D) -> void:
 			saveman.save_game(dict)
 # next level
 func _on_comp_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/level03.tscn")
+	get_tree().change_scene_to_file("res://levels/title.tscn")
 # retry button
 func _on_retrybutton_pressed() -> void:
 	get_tree().reload_current_scene()
