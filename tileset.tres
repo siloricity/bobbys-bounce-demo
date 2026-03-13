@@ -1,0 +1,33 @@
+[gd_resource type="TileSet" format=3 uid="uid://becgik0ni3t1d"]
+
+[ext_resource type="Texture2D" uid="uid://dy1esumpg467t" path="res://assets/tileset.png" id="1_2urvg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cy10"]
+texture = ExtResource("1_2urvg")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-33.333336, 33.33333, 33.33333, 33.33333, 50, 50, -50, 50)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -25, 37.5, 50, -37.5, 50)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, 50, -50, 50)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, 16.666664, -16.666668, 50, -50, 50)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, 16.666664, 50, 16.666664, 50, 50, -50, 50)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -16.666668, -50, 16.666664, 50, 16.666664, 50, -16.666668)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -16.666668, -16.666668, 16.666664, 50, 16.666664, 50, 50, -50, 50)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -16.666668, -16.666668, 16.666664, -50, 16.666664)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, 16.666664, -33.333336, 0, 33.33333, 0, 50, 16.666664)
+
+[resource]
+tile_size = Vector2i(100, 100)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
+sources/0 = SubResource("TileSetAtlasSource_0cy10")

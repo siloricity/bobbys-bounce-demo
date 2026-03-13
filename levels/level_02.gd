@@ -20,7 +20,8 @@ func _input(_InputEvent):
 			$bobby.dead = true
 	if Input.is_action_just_released("click"):
 		$Timer.stop()
-		$failsafe.start()
+		if $failsafe.is_stopped():
+			$failsafe.start()
 func its_okay():
 	$welcome.text = "it's okay to fail"
 	$welcome.position.y +=100
@@ -49,7 +50,7 @@ func _on_finish_body_entered(body: Node2D) -> void:
 			saveman.save_game(dict)
 # next level
 func _on_comp_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/title.tscn")
+	get_tree().change_scene_to_file("res://title.tscn")
 # retry button
 func _on_retrybutton_pressed() -> void:
 	get_tree().reload_current_scene()

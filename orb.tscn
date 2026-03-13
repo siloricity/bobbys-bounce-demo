@@ -6,6 +6,9 @@
 [sub_resource type="Gradient" id="Gradient_vx8ir"]
 colors = PackedColorArray(0.99607843, 1, 0.4392157, 0.31764707, 1, 1, 1, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xdlj8"]
+radius = 48.0
+
 [node name="Sprite2D" type="Sprite2D" unique_id=1994661621]
 texture = ExtResource("1_xdlj8")
 
@@ -23,3 +26,9 @@ tangential_accel_max = -79.54
 scale_amount_min = 0.5
 scale_amount_max = 0.5
 color_initial_ramp = SubResource("Gradient_vx8ir")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2125724941]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1239959483]
+shape = SubResource("CircleShape2D_xdlj8")
+debug_color = Color(1, 0, 0, 0.65882355)
