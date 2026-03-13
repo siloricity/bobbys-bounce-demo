@@ -14,3 +14,7 @@ func _on_butt_quit_pressed() -> void:
 func _input(_InputEvent):
 	if Input.is_action_pressed("ctrl") and Input.is_action_pressed("shift") and Input.is_action_just_pressed("r"):
 		saveman.reset_save()
+
+
+func _on_savebutton_pressed() -> void:
+	OS.shell_show_in_file_manager(ProjectSettings.globalize_path("user://"),true)

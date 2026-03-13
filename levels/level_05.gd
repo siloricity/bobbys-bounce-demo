@@ -5,7 +5,7 @@ func _ready():
 	# intro sequence animation
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property($welcome,"modulate:a",1,1.2)
-	tween.parallel().tween_property($welcome,"position:y",200,1.2)
+	tween.parallel().tween_property($welcome,"position:y",120,1.2)
 	progress = 1
 func _input(_InputEvent):
 	if Input.is_action_just_pressed("click"):
@@ -40,8 +40,8 @@ func _on_finish_body_entered(body: Node2D) -> void:
 		tween.tween_property($%complete,"position:y",330,1)
 		tween.parallel().tween_property($%retrybutton,"modulate:a",1,1.2)
 		var dict = saveman.load_game().duplicate()
-		if dict["level04"] != 1:
-			dict["level04"] = 1
+		if dict["level05"] != 1:
+			dict["level05"] = 1
 			dict["levels_completed"] += 1
 			saveman.save_game(dict)
 # next level

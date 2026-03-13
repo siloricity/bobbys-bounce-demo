@@ -120,6 +120,14 @@ text = "0 / 20 Levels Completed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="savebutton" type="Button" parent="BoxContainer/HBoxContainer" unique_id=1129850582]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "open
+save
+location"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer" unique_id=117445554]
 layout_mode = 2
 size_flags_vertical = 3
@@ -243,6 +251,7 @@ libraries/ = SubResource("AnimationLibrary_0824t")
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1858915515]
 libraries/ = SubResource("AnimationLibrary_0824t")
 
+[connection signal="pressed" from="BoxContainer/HBoxContainer/savebutton" to="." method="_on_savebutton_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxContainer2/VBoxContainer/butt_bounce" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxContainer2/VBoxContainer/butt_lore" to="." method="_on_butt_lore_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxContainer2/VBoxContainer/butt_quit" to="." method="_on_butt_quit_pressed"]

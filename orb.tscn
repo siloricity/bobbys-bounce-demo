@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c7d3dw60837js" path="res://assets/orb.png" id="1_xdlj8"]
 [ext_resource type="Texture2D" uid="uid://cjay2fmc6nxs7" path="res://assets/light.png" id="2_2qvkr"]
+[ext_resource type="Script" uid="uid://b5ore14y8tjfs" path="res://orb.gd" id="2_vx8ir"]
 
 [sub_resource type="Gradient" id="Gradient_vx8ir"]
 colors = PackedColorArray(0.99607843, 1, 0.4392157, 0.31764707, 1, 1, 1, 1)
@@ -9,8 +10,9 @@ colors = PackedColorArray(0.99607843, 1, 0.4392157, 0.31764707, 1, 1, 1, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_xdlj8"]
 radius = 48.0
 
-[node name="Sprite2D" type="Sprite2D" unique_id=1994661621]
+[node name="Orb" type="Sprite2D" unique_id=1994661621]
 texture = ExtResource("1_xdlj8")
+script = ExtResource("2_vx8ir")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=516127642]
 amount = 28
@@ -28,7 +30,11 @@ scale_amount_max = 0.5
 color_initial_ramp = SubResource("Gradient_vx8ir")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2125724941]
+collision_layer = 32
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1239959483]
 shape = SubResource("CircleShape2D_xdlj8")
 debug_color = Color(1, 0, 0, 0.65882355)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
