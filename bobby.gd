@@ -40,6 +40,8 @@ func _on_body_entered(body: Node) -> void:
 			bump_sound(randf_range(0.5,2))
 		"TileHazards":
 			EXPLODES()
+
+			
 # collide sound
 func bump_sound(pitch):
 	$BumpSound.pitch_scale = pitch

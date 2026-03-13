@@ -1,0 +1,57 @@
+extends Node2D
+var progress: int = 0
+func _ready():
+	$bobby.death.connect(its_okay)
+	# intro sequence animation
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property($welcome,"modulate:a",1,1.2)
+	tween.parallel().tween_property($welcome,"position:y",200,1.2)
+	progress = 1
+func _input(_InputEvent):
+	if Input.is_action_just_pressed("click"):
+		if progress == 1: # fade out intro sequence
+			var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+			tween.tween_property($welcome,"modulate:a",0,1.2)
+	# logic to enable timer for ghost
+		if $bobby.dead == true: pass
+		else:
+			$Timer.start()
+		if $bobby.linear_velocity != Vector2.ZERO:
+			$bobby.dead = true
+	if Input.is_action_just_released("click"):
+		$Timer.stop()
+		$failsafe.start()
+func its_okay():
+	$%retrybutton.disabled = false
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property($%retrybutton,"modulate:a",1,1.2)
+# spawn ghosts
+func _on_timer_timeout() -> void:
+	var ghost = $bobby.ghost.instantiate()
+	ghost.position = $bobby.position
+	add_child(ghost)
+# finish box signal
+func _on_finish_body_entered(body: Node2D) -> void:
+	if body == $bobby:
+		$bobby.dead = true
+		$%retrybutton.disabled = false
+		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property($%complete,"position:y",330,1)
+		tween.parallel().tween_property($%retrybutton,"modulate:a",1,1.2)
+		var dict = saveman.load_game().duplicate()
+		if dict["level04"] != 1:
+			dict["level04"] = 1
+			dict["levels_completed"] += 1
+			saveman.save_game(dict)
+# next level
+func _on_comp_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://title.tscn")
+# retry button
+func _on_retrybutton_pressed() -> void:
+	get_tree().reload_current_scene()
+# move camera trigger
+
+func _on_cam_trigger_body_entered(body: Node2D) -> void:
+	if body.name == "bobby":
+		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property($Camera2D,"position",Vector2(512,340),0.5)

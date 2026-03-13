@@ -71,6 +71,8 @@ esc={
 2d_physics/layer_2="bobby"
 2d_physics/layer_3="ghost"
 2d_physics/layer_4="finish"
+2d_physics/layer_5="camera"
+2d_physics/layer_6="orb"
 
 [rendering]
 

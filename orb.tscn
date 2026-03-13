@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dffawqwb6vyu1"]
+
+[ext_resource type="Texture2D" uid="uid://c7d3dw60837js" path="res://assets/orb.png" id="1_xdlj8"]
+[ext_resource type="Texture2D" uid="uid://cjay2fmc6nxs7" path="res://assets/light.png" id="2_2qvkr"]
+
+[sub_resource type="Gradient" id="Gradient_vx8ir"]
+colors = PackedColorArray(0.99607843, 1, 0.4392157, 0.31764707, 1, 1, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1994661621]
+texture = ExtResource("1_xdlj8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=516127642]
+amount = 28
+texture = ExtResource("2_2qvkr")
+local_coords = true
+emission_shape = 6
+emission_ring_inner_radius = 5.21
+emission_ring_radius = 50.0
+particle_flag_align_y = true
+gravity = Vector2(0, 0)
+tangential_accel_min = -79.54
+tangential_accel_max = -79.54
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color_initial_ramp = SubResource("Gradient_vx8ir")
