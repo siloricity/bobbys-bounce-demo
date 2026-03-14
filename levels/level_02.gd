@@ -12,10 +12,6 @@ func _input(_InputEvent):
 		if progress == 1: # fade out intro sequence
 			var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 			tween.tween_property($welcome,"modulate:a",0,1.2)
-	# logic to enable timer for ghost
-		if $bobby.dead == true: pass
-		else:
-			$Timer.start()
 		if $bobby.linear_velocity != Vector2.ZERO:
 			$bobby.dead = true
 	if Input.is_action_just_released("click"):

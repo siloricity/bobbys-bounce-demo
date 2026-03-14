@@ -4,7 +4,6 @@ extends RigidBody2D
 @export var ghost: PackedScene
 var released := false
 var dead := false
-#var hits: Array = []
 signal death
 # rotate the sling
 func _process(_delta):
@@ -39,13 +38,9 @@ func _on_body_entered(body: Node) -> void:
 	match body.name:
 		"TileBlocks":
 			bump_sound(randf_range(0.5,2))
-			#hits.push_back(Vector2i(self.position)/17)
-			#if hits.size() > 2:
-				#if hits[-1] == hits[-3]:
-					#self.apply_central_force(Vector2(6000,1))
+			self.physics_material_override.bounce = 0.99
 		"TileHazards":
 			EXPLODES()
-			#hits.clear()
 
 # Physics anti-softlock by sunshinecoco12 on Discord
 func _physics_process(delta: float) -> void:
@@ -53,13 +48,17 @@ func _physics_process(delta: float) -> void:
 	var ball_radius: float = 15.0
 	var friction: float = 0.3
 	if collision_info:
+		if collision_info.get_collider().name == "slippy":
+			self.physics_material_override.bounce = 0
+		else:
+			self.physics_material_override.bounce = 0.99
 		angular_velocity = -linear_velocity.dot(collision_info.get_normal().orthogonal()) / ball_radius * friction
 
-# collide sound
+## collide sound
 func bump_sound(pitch):
 	$BumpSound.pitch_scale = pitch
 	$BumpSound.play()
-# death sfx
+## death sfx
 func EXPLODES():
 	self.sleeping = true
 	dead = true

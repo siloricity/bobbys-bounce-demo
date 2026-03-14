@@ -27,10 +27,6 @@ func _input(_InputEvent):
 				tween.tween_property($welcome,"modulate:a",0,1.2)
 				tween.tween_interval(1)
 				tween.tween_property($finish,"position:y",528,1)
-	# logic to enable timer for ghost
-	if Input.is_action_just_pressed("click"):
-		if $bobby.dead != true:
-			$Timer.start()
 	if Input.is_action_just_released("click"):
 		$Timer.stop()
 func _on_timer_2_timeout() -> void:

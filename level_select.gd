@@ -1,4 +1,5 @@
 extends VBoxContainer
+
 func _ready():
 	var save = saveman.load_game().duplicate()
 	if save["level01"] == 1:
