@@ -40,8 +40,8 @@ func _on_finish_body_entered(body: Node2D) -> void:
 		tween.tween_property($%complete,"position:y",330,1)
 		tween.parallel().tween_property($%retrybutton,"modulate:a",1,1.2)
 		var dict = saveman.load_game().duplicate()
-		if dict["level05"] != 1:
-			dict["level05"] = 1
+		if dict["level06"] != 1:
+			dict["level06"] = 1
 			dict["levels_completed"] += 1
 			saveman.save_game(dict)
 # next level

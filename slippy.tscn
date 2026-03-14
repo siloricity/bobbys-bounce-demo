@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://5gyijwt4l06v"]
+
+[ext_resource type="Script" uid="uid://bv8k7as40dbha" path="res://levels/slippy.gd" id="1_hnhxo"]
+
+[node name="slippy" type="StaticBody2D" unique_id=1387181598]
+collision_mask = 6
+script = ExtResource("1_hnhxo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1383793953]
+collision_layer = 32
+collision_mask = 6
+
+[node name="DefiningPolygon" type="CollisionPolygon2D" parent="Area2D" unique_id=211952364]
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D" unique_id=1895134252]
+color = Color(0.6392157, 0.7019608, 0.81960785, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=865100964]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

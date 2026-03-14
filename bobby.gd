@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	var ball_radius: float = 15.0
 	var friction: float = 0.3
 	if collision_info:
-		if collision_info.get_collider().name == "slippy":
+		if collision_info.get_collider().has_method("method"):
 			self.physics_material_override.bounce = 0
 		else:
 			self.physics_material_override.bounce = 0.99
