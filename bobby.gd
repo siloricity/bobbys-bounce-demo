@@ -1,35 +1,39 @@
 extends RigidBody2D
+@onready var star := $star
+@onready var line := $Line2D ## sling line
+@onready var line_guide := $LineGuidance ## tells line position to tween
+@onready var bump_sfx := $BumpSound ## audio node for regular tiles
+@onready var roll_sfx := $RollSound ## audio node for slippery walls
+@onready var roll_tmr := $RollTimer
 @export var sling_multiplier:float
 @export var max_sling:int
 @export var ghost: PackedScene
 var released := false
 var dead := false
 signal death
+
 # rotate the sling
 func _process(_delta):
 	var mouse = get_global_mouse_position()
 	var vel: Vector2 = sling_multiplier*(self.global_position-mouse)
-	$Line2D.rotation = -self.rotation
-	$Line2D.points[1] = $LineGuidance.position
+	line.rotation = -self.rotation
+	line.points[1] = line_guide.position
 	#holding
 	if Input.is_action_pressed("click"):
-		if dead == true: pass
-		else:
-			$star.show()
-			$Line2D.show()
-			@warning_ignore("integer_division")
-			$LineGuidance.position=(mouse-self.global_position).limit_length(max_sling)
+		if dead == false:
+			star.show()
+			line.show()
+			line_guide.position=(mouse-self.global_position).limit_length(max_sling)
 			self.look_at(mouse)
 			self.rotation_degrees -= 90
 			self.linear_velocity = Vector2.ZERO
-			$star.global_position = mouse
+			star.global_position = mouse
 	#release
 	if Input.is_action_just_released("click"):
-		if dead == true: pass
-		else:
-			$star.hide()
+		if dead == false:
+			star.hide()
 			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-			tween.tween_property($LineGuidance,"position",Vector2.ZERO,0.1)
+			tween.tween_property(line_guide,"position",Vector2.ZERO,0.1)
 			self.freeze = false
 			self.gravity_scale = 0
 			self.linear_velocity = vel.limit_length(max_sling*2)
@@ -49,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	var ball_radius: float = 15.0
 	var friction: float = 0.3
 	if collision_info:
+		# really stupid way of knowing if its a slippery wall
 		if collision_info.get_collider().has_method("method"):
 			self.physics_material_override.bounce = 0
 			roll_sound(true)
@@ -57,21 +62,21 @@ func _physics_process(delta: float) -> void:
 			roll_sound(false)
 		angular_velocity = -linear_velocity.dot(collision_info.get_normal().orthogonal()) / ball_radius * friction
 	else: roll_sound(false)
-## collide sound
+## collide sound for regular tiles
 func bump_sound(pitch):
-	$BumpSound.pitch_scale = pitch
-	$BumpSound.play()
-## roll sound
+	bump_sfx.pitch_scale = pitch
+	bump_sfx.play()
+## roll sound for slippery walls
 func roll_sound(play: bool):
 	if play == true:
-		$RollTimer.stop()
-		if not $RollSound.playing:
-			$RollSound.play()
+		roll_tmr.stop()
+		if not roll_sfx.playing:
+			roll_sfx.play()
 	if play == false:
-		if $RollTimer.is_stopped():
-			$RollTimer.start()
+		if roll_tmr.is_stopped():
+			roll_tmr.start()
 func _on_roll_timer_timeout() -> void:
-	$RollSound.stop()
+	roll_sfx.stop()
 ## death sfx
 func EXPLODES():
 	self.sleeping = true

@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://ckmfq25kdg3wb"]
 
+[ext_resource type="Script" uid="uid://bgrbddbe41itm" path="res://lore.gd" id="1_k5caf"]
 [ext_resource type="StyleBox" uid="uid://dl3qqsolfqsg2" path="res://assets/red_theme.tres" id="1_pp6gk"]
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=1449224860]
+[node name="Lore" type="VBoxContainer" unique_id=1449224860]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_k5caf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=637046476]
 layout_mode = 2
@@ -30,7 +32,7 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("1_pp6gk")
 theme_override_styles/disabled = ExtResource("1_pp6gk")
 theme_override_styles/disabled_mirrored = ExtResource("1_pp6gk")
 theme_override_styles/focus = ExtResource("1_pp6gk")
-text = "back"
+text = " back "
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=1734845319]
 layout_mode = 2

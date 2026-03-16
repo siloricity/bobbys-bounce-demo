@@ -51,7 +51,6 @@ func _on_comp_button_pressed() -> void:
 func _on_retrybutton_pressed() -> void:
 	get_tree().reload_current_scene()
 # move camera trigger
-
 func _on_cam_trigger_body_entered(body: Node2D) -> void:
 	if body.name == "bobby":
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
