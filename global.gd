@@ -8,8 +8,8 @@ func _input(_InputEvent):
 	if Input.is_action_just_pressed("g"):
 		add_child(quack.instantiate())
 func _ready():
-	# Application ID
-	DiscordRPC.app_id = 1482445160360050882
-	DiscordRPC.details = "boing"
-	DiscordRPC.refresh()
+	if OS.get_name() != "Android" || "iOS" || "Web":
+		DiscordRPC.app_id = 1482445160360050882
+		DiscordRPC.details = "boing"
+		DiscordRPC.refresh()
 	
