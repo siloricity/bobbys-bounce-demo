@@ -2,6 +2,7 @@ extends Node2D
 var progress: int = 0
 func _ready():
 	$bobby.death.connect(its_okay)
+	$bobby.death.connect(lmao)
 	# intro sequence animation
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property($welcome,"modulate:a",1,1.2)
@@ -51,7 +52,11 @@ func _on_comp_button_pressed() -> void:
 func _on_retrybutton_pressed() -> void:
 	get_tree().reload_current_scene()
 # move camera trigger
-
+func lmao():
+	if $Camera2D.position != Vector2.ZERO:
+		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property($welcome2,"position:y",650,1)
+		tween.parallel().tween_property($welcome2,"modulate:a",1,1)
 func _on_cam_trigger_body_entered(body: Node2D) -> void:
 	if body.name == "bobby":
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
