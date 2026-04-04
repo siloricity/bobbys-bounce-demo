@@ -13,5 +13,7 @@ func _on_butt_quit_pressed() -> void:
 func _input(_InputEvent):
 	if Input.is_action_pressed("ctrl") and Input.is_action_pressed("shift") and Input.is_action_just_pressed("r"):
 		get_tree().change_scene_to_file("res://reset_menu.tscn")
+	if Input.is_action_just_pressed("esc"):
+		get_tree().quit()
 func _on_savebutton_pressed() -> void:
 	get_tree().change_scene_to_file("res://settings.tscn")

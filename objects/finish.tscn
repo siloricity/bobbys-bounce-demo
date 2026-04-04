@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blp502j8tbuj0"]
 
-[ext_resource type="Script" uid="uid://cbefjo87iwh3y" path="res://finish.gd" id="1_yp4eo"]
+[ext_resource type="Script" uid="uid://cbefjo87iwh3y" path="res://objects/finish.gd" id="1_yp4eo"]
 [ext_resource type="FastNoiseLite" uid="uid://b1rmounb6f57c" path="res://assets/noise.tres" id="2_bt3yw"]
 
 [sub_resource type="Gradient" id="Gradient_se5xy"]

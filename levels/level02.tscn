@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="2_oig5u"]
 [ext_resource type="Texture2D" uid="uid://dy1esumpg467t" path="res://assets/tileset.png" id="3_33ega"]
 [ext_resource type="StyleBox" uid="uid://dl3qqsolfqsg2" path="res://assets/red_theme.tres" id="4_oig5u"]
-[ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://finish.tscn" id="4_orkke"]
+[ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="4_orkke"]
 [ext_resource type="PackedScene" uid="uid://cm2swjqq20f0v" path="res://complete.tscn" id="5_n311a"]
 
 [sub_resource type="Gradient" id="Gradient_emax3"]

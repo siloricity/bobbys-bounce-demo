@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cm2swjqq20f0v" path="res://complete.tscn" id="3_ua7kj"]
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="4_feb7w"]
 [ext_resource type="TileSet" uid="uid://becgik0ni3t1d" path="res://tileset.tres" id="5_m4wrk"]
-[ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://finish.tscn" id="6_cj3ca"]
+[ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="6_cj3ca"]
 [ext_resource type="PackedScene" uid="uid://dffawqwb6vyu1" path="res://objects/orb.tscn" id="7_01x3r"]
 
 [sub_resource type="Gradient" id="Gradient_emax3"]
