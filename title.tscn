@@ -114,7 +114,7 @@ vertical_alignment = 1
 [node name="LevelCount" type="RichTextLabel" parent="BoxContainer/HBoxContainer" unique_id=831832751]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.89
+size_flags_stretch_ratio = 2.64
 theme_override_font_sizes/normal_font_size = 47
 text = "0 / 20 Levels Completed"
 horizontal_alignment = 1
@@ -123,10 +123,14 @@ vertical_alignment = 1
 [node name="savebutton" type="Button" parent="BoxContainer/HBoxContainer" unique_id=1129850582]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 28
-text = "open
-save
-location"
+size_flags_stretch_ratio = 2.2
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = ExtResource("4_3xoar")
+theme_override_styles/pressed = ExtResource("4_3xoar")
+theme_override_styles/hover = ExtResource("4_3xoar")
+theme_override_styles/disabled = ExtResource("4_3xoar")
+theme_override_styles/focus = ExtResource("4_3xoar")
+text = "settings "
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer" unique_id=117445554]
 layout_mode = 2

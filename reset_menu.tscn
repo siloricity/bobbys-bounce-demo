@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://c0l7ucupf02s6"]
+
+[ext_resource type="StyleBox" uid="uid://dl3qqsolfqsg2" path="res://assets/red_theme.tres" id="1_4n23i"]
+[ext_resource type="Script" uid="uid://buh3vy1sfks7g" path="res://reset_menu.gd" id="1_vj01a"]
+[ext_resource type="StyleBox" uid="uid://bl8w32l26jrcn" path="res://assets/yellow_theme.tres" id="2_k0n12"]
+[ext_resource type="StyleBox" uid="uid://bb1nr4hls440g" path="res://assets/blue_theme.tres" id="4_psst3"]
+
+[node name="ResetMenu" type="Control" unique_id=953315212]
+z_index = 3
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 80.0
+offset_right = -80.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vj01a")
+
+[node name="Panel" type="Panel" parent="." unique_id=810689859]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_4n23i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1730920007]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer" unique_id=887543110]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.34
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer" unique_id=1850259135]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 46
+text = "Are you sure you want to reset save data?"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=509594570]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1444672123]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1907212201]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.36
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = ExtResource("2_k0n12")
+theme_override_styles/pressed = ExtResource("2_k0n12")
+theme_override_styles/hover = ExtResource("2_k0n12")
+theme_override_styles/disabled = ExtResource("2_k0n12")
+theme_override_styles/focus = ExtResource("2_k0n12")
+text = "yeah"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=982370511]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.36
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = ExtResource("4_psst3")
+theme_override_styles/pressed = ExtResource("4_psst3")
+theme_override_styles/hover = ExtResource("4_psst3")
+theme_override_styles/disabled = ExtResource("4_psst3")
+theme_override_styles/focus = ExtResource("4_psst3")
+text = "NAHH"
+
+[node name="Control2" type="Control" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1493542090]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="Panel/VBoxContainer" unique_id=2032591445]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.21
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -10,7 +10,7 @@ func _ready():
 		# intro sequence animation
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		tween.tween_property($welcome,"modulate:a",1,1.2)
-		tween.parallel().tween_property($welcome,"position:y",120,1.2)
+		tween.parallel().tween_property($welcome,"position:y",310,1.2)
 		progress = 1
 func _input(_InputEvent):
 	if Input.is_action_just_pressed("click"):

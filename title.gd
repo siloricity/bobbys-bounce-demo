@@ -1,5 +1,4 @@
 extends Node2D
-
 func _ready():
 	var dict = saveman.load_game()
 	$BoxContainer/HBoxContainer/LevelCount.text = str(int(dict["levels_completed"]))+" / 20 levels completed"
@@ -13,7 +12,6 @@ func _on_butt_quit_pressed() -> void:
 	get_tree().quit()
 func _input(_InputEvent):
 	if Input.is_action_pressed("ctrl") and Input.is_action_pressed("shift") and Input.is_action_just_pressed("r"):
-		saveman.reset_save()
-
+		get_tree().change_scene_to_file("res://reset_menu.tscn")
 func _on_savebutton_pressed() -> void:
-	OS.shell_show_in_file_manager(ProjectSettings.globalize_path("user://"),true)
+	get_tree().change_scene_to_file("res://settings.tscn")
