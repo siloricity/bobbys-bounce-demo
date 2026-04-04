@@ -1,5 +1,6 @@
 extends Node
 @onready var quack = preload("res://mystery.tscn")
+var checkpoint_lv: int = 0
 func _input(_InputEvent):
 	if Input.is_action_just_pressed("esc"):
 		get_tree().change_scene_to_file("res://title.tscn")
@@ -12,4 +13,3 @@ func _ready():
 		DiscordRPC.app_id = 1482445160360050882
 		DiscordRPC.details = "boing"
 		DiscordRPC.refresh()
-	

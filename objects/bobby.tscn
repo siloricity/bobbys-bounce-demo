@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bptoycg1f0wjw"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://dxa8kjwmc4btk" path="res://bobbyphysics.tres" id="1_0xubk"]
-[ext_resource type="Script" uid="uid://dstmpvomb1x4d" path="res://bobby.gd" id="1_gvm5p"]
+[ext_resource type="Script" uid="uid://dstmpvomb1x4d" path="res://objects/bobby.gd" id="1_gvm5p"]
 [ext_resource type="Texture2D" uid="uid://dosjvlheqmwrs" path="res://assets/bobby.svg" id="1_vcwjl"]
-[ext_resource type="PackedScene" uid="uid://d1vcqjqs2grh1" path="res://ghost.tscn" id="2_bsmyw"]
+[ext_resource type="PackedScene" uid="uid://d1vcqjqs2grh1" path="res://objects/ghost.tscn" id="2_bsmyw"]
 [ext_resource type="Texture2D" uid="uid://cepsdmxpysgkd" path="res://assets/stars.png" id="3_ct5nq"]
 [ext_resource type="AudioStream" uid="uid://c8wsrcu06j6wx" path="res://assets/die.ogg" id="4_hlrda"]
 [ext_resource type="AudioStream" uid="uid://b51syta3tqn7y" path="res://assets/bump.wav" id="5_7bcfl"]
@@ -67,7 +67,7 @@ texture = ExtResource("3_ct5nq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1035518885]
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_vcwjl")
-debug_color = Color(1, 1, 1, 0.14509805)
+debug_color = Color(1, 1, 1, 0.21568628)
 
 [node name="DeathFX" type="GPUParticles2D" parent="." unique_id=1810631440]
 emitting = false
@@ -80,7 +80,6 @@ stream = ExtResource("4_hlrda")
 
 [node name="BumpSound" type="AudioStreamPlayer2D" parent="." unique_id=1886717805]
 stream = ExtResource("5_7bcfl")
-volume_db = -6.679
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=566778922]
 scale = Vector2(0.1, 0.1)

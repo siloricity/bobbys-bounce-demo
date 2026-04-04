@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1vcqjqs2grh1"]
 
-[ext_resource type="Script" uid="uid://2x74nh2mlvqb" path="res://ghost.gd" id="1_6attn"]
+[ext_resource type="Script" uid="uid://2x74nh2mlvqb" path="res://objects/ghost.gd" id="1_6attn"]
 [ext_resource type="Texture2D" uid="uid://dosjvlheqmwrs" path="res://assets/bobby.svg" id="1_v5pp4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v5pp4"]

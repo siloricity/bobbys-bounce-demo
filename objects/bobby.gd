@@ -1,3 +1,4 @@
+class_name bobby
 extends RigidBody2D
 @onready var star := $star
 @onready var line := $Line2D ## sling line
@@ -11,7 +12,13 @@ extends RigidBody2D
 var released := false
 var dead := false
 signal death
+signal refresh
 
+func _ready():
+	refresh.connect(refresh_sling)
+## signal used by pink orbs to reset your sling
+func refresh_sling():
+	pass
 # rotate the sling
 func _process(_delta):
 	var mouse = get_global_mouse_position()

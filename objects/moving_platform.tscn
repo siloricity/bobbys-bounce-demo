@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cslvyfk2bjsfg"]
+
+[ext_resource type="Script" uid="uid://0s42jnvtsnfy" path="res://objects/moving_platform.gd" id="1_q06lf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hrpga"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8lbu"]
+size = Vector2(144, 32)
+
+[node name="MovingPlatform" type="RigidBody2D" unique_id=1780028042]
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_hrpga")
+gravity_scale = 0.0
+script = ExtResource("1_q06lf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1625354889]
+shape = SubResource("RectangleShape2D_f8lbu")
+debug_color = Color(0.6392157, 0.7019608, 0.81960785, 0.18039216)
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=1101521180]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6392157, 0.7019608, 0.81960785, 1)
+metadata/_edit_use_anchors_ = true

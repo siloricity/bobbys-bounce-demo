@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5gyijwt4l06v"]
 
-[ext_resource type="Script" uid="uid://bv8k7as40dbha" path="res://slippy.gd" id="1_hnhxo"]
+[ext_resource type="Script" uid="uid://bv8k7as40dbha" path="res://objects/slippy.gd" id="1_hnhxo"]
 
 [sub_resource type="Gradient" id="Gradient_hnhxo"]
 offsets = PackedFloat32Array(0.49305555, 0.9097222)

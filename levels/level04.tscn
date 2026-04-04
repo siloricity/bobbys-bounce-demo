@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c0qgl3jpp5f8x"]
 
 [ext_resource type="Script" uid="uid://cpir8dib0ibxg" path="res://levels/level_04.gd" id="1_6r1wt"]
-[ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://bobby.tscn" id="2_r78xb"]
+[ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="2_r78xb"]
 [ext_resource type="StyleBox" uid="uid://dl3qqsolfqsg2" path="res://assets/red_theme.tres" id="4_fvdud"]
 [ext_resource type="TileSet" uid="uid://becgik0ni3t1d" path="res://tileset.tres" id="5_6r1wt"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://finish.tscn" id="5_qkyi5"]

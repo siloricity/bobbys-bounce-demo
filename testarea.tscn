@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://clc8y1nsr76q3"]
 
 [ext_resource type="Script" uid="uid://bnpqmmio07xnq" path="res://testarea.gd" id="1_0cy10"]
-[ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://bobby.tscn" id="1_5v1cx"]
+[ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="1_5v1cx"]
 [ext_resource type="Texture2D" uid="uid://dy1esumpg467t" path="res://assets/tileset.png" id="2_xvnlw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5v1cx"]

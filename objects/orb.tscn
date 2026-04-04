@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c7d3dw60837js" path="res://assets/orb.png" id="1_xdlj8"]
 [ext_resource type="Texture2D" uid="uid://cjay2fmc6nxs7" path="res://assets/light.png" id="2_2qvkr"]
-[ext_resource type="Script" uid="uid://b5ore14y8tjfs" path="res://orb.gd" id="2_vx8ir"]
+[ext_resource type="Script" uid="uid://b5ore14y8tjfs" path="res://objects/orb.gd" id="2_vx8ir"]
 
 [sub_resource type="Gradient" id="Gradient_vx8ir"]
 colors = PackedColorArray(0.99607843, 1, 0.4392157, 0.31764707, 1, 1, 1, 1)
@@ -11,6 +11,7 @@ colors = PackedColorArray(0.99607843, 1, 0.4392157, 0.31764707, 1, 1, 1, 1)
 radius = 48.0
 
 [node name="Orb" type="Sprite2D" unique_id=1994661621]
+self_modulate = Color(0.9921875, 1, 0, 1)
 texture = ExtResource("1_xdlj8")
 script = ExtResource("2_vx8ir")
 
@@ -34,6 +35,7 @@ collision_layer = 32
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1239959483]
+visible = false
 shape = SubResource("CircleShape2D_xdlj8")
 debug_color = Color(1, 0, 0, 0.65882355)
 
