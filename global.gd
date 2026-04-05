@@ -1,6 +1,7 @@
 extends Node
 @onready var quack = preload("res://mystery.tscn")
 var checkpoint_lv: int = 0
+var refresh_jump := false
 func _input(_InputEvent):
 	if Input.is_action_just_pressed("esc"):
 		get_tree().change_scene_to_file("res://title.tscn")

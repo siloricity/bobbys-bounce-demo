@@ -12,13 +12,7 @@ extends RigidBody2D
 var released := false
 var dead := false
 signal death
-signal refresh
 
-func _ready():
-	refresh.connect(refresh_sling)
-## signal used by pink orbs to reset your sling
-func refresh_sling():
-	pass
 # rotate the sling
 func _process(_delta):
 	var mouse = get_global_mouse_position()
@@ -33,11 +27,14 @@ func _process(_delta):
 			line_guide.position=(mouse-self.global_position).limit_length(max_sling)
 			self.look_at(mouse)
 			self.rotation_degrees -= 90
-			self.linear_velocity = Vector2.ZERO
+			if global.refresh_jump == false:
+				self.linear_velocity = Vector2.ZERO
 			star.global_position = mouse
 	#release
 	if Input.is_action_just_released("click"):
 		if dead == false:
+			if global.refresh_jump == true:
+				global.refresh_jump = false
 			star.hide()
 			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 			tween.tween_property(line_guide,"position",Vector2.ZERO,0.1)
