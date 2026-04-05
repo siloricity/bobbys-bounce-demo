@@ -9,6 +9,10 @@ func _input(_InputEvent):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("g"):
 		add_child(quack.instantiate())
+	if Input.is_action_just_pressed("f"):
+		match DisplayServer.window_get_mode():
+			0: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			3: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	if FileAccess.file_exists("user://debug"):
 		if Input.is_action_pressed("ctrl"):
 			Engine.time_scale = 2
