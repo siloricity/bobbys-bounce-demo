@@ -71,6 +71,8 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.33
 theme_override_font_sizes/normal_font_size = 42
 text = "Tutorial Levels:"
+fit_content = true
+scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/VBoxContainer" unique_id=1889717742]
 layout_mode = 2
@@ -176,7 +178,12 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "5"
 
-[node name="but_l6" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=851486698]
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer2/VBoxContainer" unique_id=538746330]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="but_l6" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer3" unique_id=1837628303]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -196,7 +203,7 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "6"
 
-[node name="but_l7" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1668903518]
+[node name="but_l7" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer3" unique_id=358954233]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -221,6 +228,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 42
 text = "Other Levels:"
+fit_content = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2/VBoxContainer" unique_id=943798012]
 layout_mode = 2
@@ -237,5 +245,5 @@ size_flags_stretch_ratio = 0.2
 [connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l3" to="." method="_on_but_pressed" binds= [3]]
 [connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l4" to="." method="_on_but_pressed" binds= [4]]
 [connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l5" to="." method="_on_but_pressed" binds= [5]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l6" to="." method="_on_but_pressed" binds= [6]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l7" to="." method="_on_but_pressed" binds= [7]]
+[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer3/but_l6" to="." method="_on_but_pressed" binds= [6]]
+[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer3/but_l7" to="." method="_on_but_pressed" binds= [7]]

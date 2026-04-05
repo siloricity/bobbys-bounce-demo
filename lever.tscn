@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b3tj74wxf8ycn"]
+
+[ext_resource type="Texture2D" uid="uid://qsh3kdynjody" path="res://assets/lever.svg" id="1_0ohsc"]
+[ext_resource type="Script" uid="uid://bkojtlk873unw" path="res://lever.gd" id="1_1btnt"]
+[ext_resource type="Shader" uid="uid://bmdrfjy1iceio" path="res://lever.gdshader" id="2_7uavd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ohsc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_soi7j"]
+shader = ExtResource("2_7uavd")
+shader_parameter/activated = false
+shader_parameter/tolerance = 1.0
+shader_parameter/prev_color = Color(1, 0.28627452, 0.2, 1)
+shader_parameter/new_color = Color(0.04296875, 1, 0.057922363, 1)
+
+[node name="Lever" type="Node2D" unique_id=1523241353]
+script = ExtResource("1_1btnt")
+
+[node name="Button" type="Button" parent="." unique_id=1949808256]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -81.0
+offset_right = 81.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ohsc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0ohsc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0ohsc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0ohsc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ohsc")
+toggle_mode = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2032246637]
+material = SubResource("ShaderMaterial_soi7j")
+texture = ExtResource("1_0ohsc")
+
+[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]
