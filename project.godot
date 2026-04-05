@@ -16,6 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="bobby's bounce"
 run/main_scene="uid://bbrs51ti3qr22"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=120
 boot_splash/bg_color=Color(0.08627451, 0.08627451, 0.3764706, 1)
@@ -26,13 +27,14 @@ config/icon="uid://drc8mw1a5hoe1"
 saveman="*uid://ygp8gydrh4rh"
 global="*uid://bbdnlnn7whhxu"
 DiscordRPCLoader="*uid://dmay6ayii8mqx"
+Drploader="*uid://2nnt4r0mkx4k"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-window/handheld/orientation=6
+window/handheld/orientation=4
 
 [editor_plugins]
 

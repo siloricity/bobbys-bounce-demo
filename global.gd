@@ -20,12 +20,9 @@ func _input(_InputEvent):
 		else:
 			Engine.time_scale = 1
 			Engine.physics_ticks_per_second = 60
-func _ready():
-	if OS.get_name() != "Android" || "iOS" || "Web":
-		DiscordRPC.app_id = 1482445160360050882
-		DiscordRPC.details = "boing"
-		DiscordRPC.refresh()
+
 func _notification(what):
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
-		Input.action_press("esc")
-		Input.action_release("esc")
+		if get_tree().current_scene.name == "Title": get_tree().quit()
+		else:
+			get_tree().change_scene_to_file("res://title.tscn")
