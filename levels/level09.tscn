@@ -43,8 +43,7 @@ offset_right = 968.0
 offset_bottom = 377.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 39
-text = "use levers to
-toggle  Things"
+text = "green orbs can reset your jump"
 scroll_active = false
 
 [node name="finish" parent="." unique_id=867881143 instance=ExtResource("5_lmcsa")]
