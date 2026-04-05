@@ -25,3 +25,7 @@ func _ready():
 		DiscordRPC.app_id = 1482445160360050882
 		DiscordRPC.details = "boing"
 		DiscordRPC.refresh()
+func _notification(what):
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		Input.action_press("esc")
+		Input.action_release("esc")
