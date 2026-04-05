@@ -38,6 +38,6 @@ func load_game() -> Dictionary:
 			push_error("Corrupted data: " + json.get_error_message())
 
 	return default_dictionary
-
+## Resets the save to default
 func reset_save() -> void:
 	save_game(default_dictionary)
