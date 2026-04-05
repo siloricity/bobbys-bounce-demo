@@ -9,7 +9,8 @@ const default_dictionary: Dictionary[String,int] = {
 	"level04" : 0,
 	"level05" : 0,
 	"level06" : 0,
-	"level07" : 0
+	"level07" : 0,
+	"level08" : 0
 	}
 
 ## Stores data to a save file to be loaded from later

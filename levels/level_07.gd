@@ -56,7 +56,7 @@ func _on_finish_body_entered(body: Node2D) -> void:
 # next level
 func _on_comp_button_pressed() -> void:
 	global.checkpoint_lv = 0
-	get_tree().change_scene_to_file("res://title.tscn")
+	get_tree().change_scene_to_file("res://levels/level08.tscn")
 # retry button
 func _on_retrybutton_pressed() -> void:
 	get_tree().reload_current_scene()

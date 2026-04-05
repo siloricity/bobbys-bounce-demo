@@ -36,21 +36,16 @@ func _on_timer_timeout() -> void:
 func _on_finish_body_entered(body: Node2D) -> void:
 	if body == $bobby:
 		$bobby.dead = true
-		$%retrybutton.disabled = false
-		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		tween.tween_property($%complete,"position:y",330,1)
-		tween.parallel().tween_property($%retrybutton,"modulate:a",1,1.2)
+		$Camera2D.finish()
 		var dict = saveman.load_game().duplicate()
 		if dict["level04"] != 1:
 			dict["level04"] = 1
 			dict["levels_completed"] += 1
 			saveman.save_game(dict)
-# next level
-func _on_comp_button_pressed() -> void:
+## move to next level
+func next_level() -> void:
+	global.checkpoint_lv = 0
 	get_tree().change_scene_to_file("res://levels/level05.tscn")
-# retry button
-func _on_retrybutton_pressed() -> void:
-	get_tree().reload_current_scene()
 # move camera trigger
 func lmao():
 	if $Camera2D.position != Vector2.ZERO:

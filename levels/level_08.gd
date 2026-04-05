@@ -37,8 +37,8 @@ func _on_finish_body_entered(body: Node2D) -> void:
 		$bobby.dead = true
 		$Camera2D.finish()
 		var dict = saveman.load_game().duplicate()
-		if dict["level07"] != 1:
-			dict["level07"] = 1
+		if dict["level08"] != 1:
+			dict["level08"] = 1
 			dict["levels_completed"] += 1
 			saveman.save_game(dict)
 ## move to next level

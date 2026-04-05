@@ -81,6 +81,7 @@ position = Vector2(976, 480)
 shape = SubResource("RectangleShape2D_6r1wt")
 debug_color = Color(0.828125, 1, 0, 0.41960785)
 
+[connection signal="pressed" from="Camera2D/complete/Button" to="." method="next_level"]
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]

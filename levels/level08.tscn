@@ -15,7 +15,7 @@ size = Vector2(293, 202)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl8yq"]
 size = Vector2(493, 137)
 
-[node name="level07" type="Node2D" unique_id=2003739862]
+[node name="level08" type="Node2D" unique_id=2003739862]
 script = ExtResource("1_hl8yq")
 
 [node name="Camera2D" parent="." unique_id=2144790541 instance=ExtResource("2_4d047")]
