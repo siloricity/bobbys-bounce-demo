@@ -1,84 +1,49 @@
-[gd_scene format=3 uid="uid://bles14hf10ihj"]
+[gd_scene format=4 uid="uid://bles14hf10ihj"]
 
 [ext_resource type="Script" uid="uid://3vpkuovpahcw" path="res://levels/level_08.gd" id="1_hl8yq"]
-[ext_resource type="StyleBox" uid="uid://dl3qqsolfqsg2" path="res://assets/red_theme.tres" id="2_8mvo4"]
-[ext_resource type="PackedScene" uid="uid://cm2swjqq20f0v" path="res://complete.tscn" id="3_ij7pc"]
+[ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://camera_2d.tscn" id="2_4d047"]
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="4_yekxc"]
 [ext_resource type="TileSet" uid="uid://becgik0ni3t1d" path="res://tileset.tres" id="5_u7pi8"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="6_olxdc"]
-[ext_resource type="PackedScene" uid="uid://bu3d8oxd68f5k" path="res://objects/orb-pink.tscn" id="7_afn4x"]
 [ext_resource type="PackedScene" uid="uid://5gyijwt4l06v" path="res://objects/slippy.tscn" id="8_luatw"]
 [ext_resource type="PackedScene" uid="uid://dffawqwb6vyu1" path="res://objects/orb.tscn" id="9_akonu"]
+[ext_resource type="PackedScene" uid="uid://b3tj74wxf8ycn" path="res://objects/lever.tscn" id="9_hl8yq"]
 
-[sub_resource type="Gradient" id="Gradient_emax3"]
-colors = PackedColorArray(0.19673681, 0.13041687, 0.43359375, 1, 0.110137224, 0.07676697, 0.50390625, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d047"]
+size = Vector2(293, 202)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_53p8g"]
-gradient = SubResource("Gradient_emax3")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl8yq"]
+size = Vector2(493, 137)
 
 [node name="level07" type="Node2D" unique_id=2003739862]
 script = ExtResource("1_hl8yq")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1914967836]
-anchor_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="Camera2D" unique_id=1509605321]
-unique_name_in_owner = true
-z_index = -2
-anchors_preset = -1
-anchor_right = 0.5
-offset_left = -4.352571
-offset_top = 720.8955
-offset_right = 721.8289
-offset_bottom = 2006.3728
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5707964
-texture = SubResource("GradientTexture1D_53p8g")
-metadata/_edit_lock_ = true
-
-[node name="retrybutton" type="Button" parent="Camera2D" unique_id=621393029]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-z_index = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = 568.0
-offset_right = 313.0
-offset_bottom = 689.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 57
-theme_override_styles/normal = ExtResource("2_8mvo4")
-theme_override_styles/pressed = ExtResource("2_8mvo4")
-theme_override_styles/hover = ExtResource("2_8mvo4")
-theme_override_styles/focus = ExtResource("2_8mvo4")
-disabled = true
-text = "  retry ↺  "
-
-[node name="complete" parent="Camera2D" unique_id=576242334 instance=ExtResource("3_ij7pc")]
-unique_name_in_owner = true
-z_index = 2
-position = Vector2(640, 1080)
+[node name="Camera2D" parent="." unique_id=2144790541 instance=ExtResource("2_4d047")]
 
 [node name="bobby" parent="." unique_id=263530290 instance=ExtResource("4_yekxc")]
-position = Vector2(136, 256)
+position = Vector2(168, 272)
 contact_monitor = true
 max_contacts_reported = 10
 sling_multiplier = 3.5
+metadata/_edit_group_ = true
 
 [node name="TileBlocks" type="TileMapLayer" parent="." unique_id=1810241861]
 z_index = 1
 scale = Vector2(0.4, 0.4)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAfAAYAAAAAAAAAAAAfAAcAAAAAAAAAAAAfAAgAAAAAAAAAAAAfAAkAAAAAAAAAAAAfAAoAAAAAAAAAAAAfAAsAAAAAAAAAAAAfAAwAAAAAAAAAAAAfAA0AAAAAAAAAAAAfAA4AAAAAAAAAAAAfAA8AAAAAAAAAAAAfABAAAAAAAAAAAAAfABEAAAAAAAAAAAAeABEAAAAAAAAAAAAdABEAAAAAAAAAAAAcABEAAAAAAAAAAAAbABEAAAAAAAAAAAAaABEAAAAAAAAAAAAZABEAAAAAAAAAAAAYABEAAAAAAAAAAAAXABEAAAAAAAAAAAAWABEAAAAAAAAAAAAVABEAAAAAAAAAAAAUABEAAAAAAAAAAAATABEAAAAAAAAAAAASABEAAAAAAAAAAAARABEAAAAAAAAAAAAQABEAAAAAAAAAAAAPABEAAAAAAAAAAAAOABEAAAAAAAAAAAANABEAAAAAAAAAAAAMABEAAAAAAAAAAAALABEAAAAAAAAAAAAKABEAAAAAAAAAAAAJABEAAAAAAAAAAAAIABEAAAAAAAAAAAAHABEAAAAAAAAAAAAGABEAAAAAAAAAAAAFABEAAAAAAAAAAAAEABEAAAAAAAAAAAADABEAAAAAAAAAAAACABEAAAAAAAAAAAABABEAAAAAAAAAAAAAABEAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA0AAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAEAAsAAAAAAAEAAFACAAwAAAAAAAAAAAADAAwAAAAAAAEAAFACAA0AAAAAAAEAAFABAA4AAAAAAAEAAFABAA0AAAAAAAAAAAABAAwAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAABAAsAAAAAAAAAAAAIAAsAAAACAAAAADAGAAsAAAACAAAAADAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAMAAAAAAAIAAAABAAEAAAAAAAIAAFAFAAEAAAAAAAIAADAFAAMAAAAAAAIAAGAGAAUAAAAAAAAAAAAIAAkAAAAAAAAAAAABAAkAAAAAAAIAAAABAAUAAAAAAAIAAFAFAAUAAAAAAAIAADAHAAkAAAAAAAIAAGATAA8AAAAAAAAAAAATABAAAAAAAAAAAAAUABAAAAAAAAAAAAAVABAAAAAAAAAAAAAWABAAAAAAAAAAAAAXABAAAAAAAAAAAAAYABAAAAAAAAAAAAAZABAAAAAAAAAAAAAaABAAAAAAAAAAAAAbABAAAAAAAAAAAAAcABAAAAAAAAAAAAAdABAAAAAAAAAAAAAeABAAAAAAAAAAAAAeAA8AAAAAAAAAAAAdAA8AAAAAAAAAAAAcAA8AAAAAAAAAAAAbAA8AAAAAAAAAAAAaAA8AAAAAAAAAAAAZAA8AAAAAAAAAAAAYAA8AAAAAAAAAAAAXAA8AAAAAAAAAAAAWAA8AAAAAAAAAAAAVAA8AAAAAAAAAAAAUAA8AAAAAAAAAAAARABAAAAAAAAEAAGASAA8AAAAAAAEAAGASABAAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAXAAsAAAAAAAAAAAAYAAsAAAAAAAAAAAAZAAsAAAAAAAAAAAAaAAsAAAAAAAAAAAAbAAsAAAAAAAAAAAAcAAsAAAAAAAAAAAAdAAsAAAAAAAAAAAAeAAsAAAAAAAAAAAASAAoAAAAAAAAAAAASAAsAAAAAAAEAADASAAkAAAAAAAAAAAASAAgAAAAAAAAAAAATAAgAAAAAAAAAAAAZAAgAAAAAAAAAAAAaAAgAAAAAAAAAAAAbAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAcAAkAAAAAAAAAAAAdAAkAAAAAAAAAAAAdAAgAAAAAAAAAAAAeAAgAAAAAAAAAAAAeAAkAAAAAAAAAAAAeAAoAAAAAAAAAAAAdAAoAAAAAAAAAAAAcAAoAAAAAAAAAAAAbAAoAAAAAAAAAAAAaAAoAAAAAAAAAAAAZAAoAAAAAAAAAAAAYAAoAAAAAAAAAAAAXAAoAAAAAAAAAAAAWAAoAAAAAAAAAAAAVAAoAAAAAAAAAAAAUAAoAAAAAAAAAAAATAAoAAAAAAAAAAAATAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAAWAAkAAAAAAAAAAAAXAAkAAAAAAAAAAAAYAAkAAAAAAAAAAAAZAAkAAAAAAAAAAAAaAAkAAAAAAAAAAAAbAAkAAAAAAAAAAAATAAcAAAAAAAAAAAAZAAcAAAAAAAAAAAAaAAcAAAAAAAAAAAAbAAcAAAAAAAAAAAAcAAcAAAAAAAAAAAAdAAcAAAAAAAAAAAAeAAcAAAAAAAAAAAAeAAYAAAAAAAAAAAASAAcAAAAAAAAAAAASAAYAAAAAAAAAAAATAAYAAAAAAAAAAAAWAAYAAAAAAAAAAAAXAAYAAAAAAAAAAAAZAAYAAAAAAAAAAAAaAAYAAAAAAAAAAAAbAAYAAAAAAAAAAAAcAAYAAAAAAAAAAAAdAAYAAAAAAAAAAAAUAAgAAAACAAAAAFAUAAcAAAACAAAAAFAXAAgAAAACAAAAAAAYAAgAAAACAAAAAAA=")
 tile_set = ExtResource("5_u7pi8")
+
+[node name="TileBlocks2" type="TileMapLayer" parent="." unique_id=1850105917]
+z_index = 1
+scale = Vector2(0.4, 0.4)
+tile_map_data = PackedByteArray("AAAYAAIAAAACAAAAAGAZAAIAAAAAAAAAAAAaAAIAAAAAAAAAAAAbAAIAAAAAAAAAAAAcAAIAAAAAAAAAAAATAAMAAAAAAAAAAAATAAQAAAAAAAAAAAATAAUAAAAAAAAAAAAUAAMAAAAAAAAAAAAUAAQAAAAAAAAAAAAUAAUAAAACAAAAADAVAAMAAAAAAAAAAAAVAAQAAAAAAAAAAAAVAAUAAAACAAAAADAWAAMAAAAAAAAAAAAWAAQAAAAAAAAAAAAWAAUAAAAAAAAAAAAXAAMAAAAAAAAAAAAXAAQAAAAAAAAAAAAXAAUAAAAAAAAAAAAZAAMAAAAAAAAAAAAZAAQAAAAAAAAAAAAZAAUAAAAAAAAAAAAaAAMAAAAAAAAAAAAaAAQAAAAAAAAAAAAaAAUAAAAAAAAAAAAbAAMAAAAAAAAAAAAbAAQAAAAAAAAAAAAbAAUAAAAAAAAAAAAcAAMAAAAAAAAAAAAcAAQAAAAAAAAAAAAcAAUAAAAAAAAAAAASAAUAAAAAAAAAAAASAAQAAAAAAAAAAAASAAMAAAAAAAAAAAAZAAEAAAAAAAAAAAAaAAEAAAAAAAAAAAAbAAEAAAAAAAAAAAAcAAEAAAAAAAAAAAAdAAEAAAAAAAAAAAAYAAEAAAACAAAAAGASAAEAAAACAAAAADATAAEAAAACAAAAADAdAAUAAAAAAAAAAAAeAAUAAAAAAAAAAAAfAAUAAAAAAAAAAAAfAAQAAAAAAAAAAAAeAAQAAAAAAAAAAAAdAAQAAAAAAAAAAAAdAAMAAAAAAAAAAAAdAAIAAAAAAAAAAAAeAAIAAAAAAAAAAAAeAAMAAAAAAAAAAAAfAAMAAAAAAAAAAAAfAAIAAAAAAAAAAAAfAAEAAAAAAAAAAAAeAAEAAAAAAAAAAAA=")
+tile_set = ExtResource("5_u7pi8")
+collision_enabled = false
 
 [node name="TileHazards" type="TileMapLayer" parent="." unique_id=1531104815]
 z_index = 1
 scale = Vector2(0.4, 0.4)
+tile_map_data = PackedByteArray("AAABABAAAAABAAAAAAACABAAAAABAAAAAAADABAAAAABAAAAAAAEABAAAAABAAAAAAAFABAAAAABAAAAAAAGABAAAAABAAAAAAAHABAAAAABAAAAAAAIABAAAAABAAAAAAAJABAAAAABAAAAAAAKABAAAAABAAAAAAALABAAAAABAAAAAAAMABAAAAABAAAAAAANABAAAAABAAAAAAAOABAAAAABAAAAAAAPABAAAAABAAAAAAAQABAAAAABAAAAAAARABAAAAABAAAAAAASABAAAAABAAAAAAATABAAAAABAAAAAAAUABAAAAABAAAAAAAVABAAAAABAAAAAAAWABAAAAABAAAAAAAXABAAAAABAAAAAAAYABAAAAABAAAAAAAZABAAAAABAAAAAAAaABAAAAABAAAAAAAbABAAAAABAAAAAAAcABAAAAABAAAAAAAdABAAAAABAAAAAAAeABAAAAABAAAAAAAGAAYAAAACAAAAADAIAAgAAAACAAAAAAARAAoAAAABAAAAAGARAAkAAAABAAAAAGARAAgAAAABAAAAAGARAAcAAAABAAAAAGA=")
 tile_set = ExtResource("5_u7pi8")
 
 [node name="Timer" type="Timer" parent="." unique_id=988185058]
@@ -87,22 +52,20 @@ wait_time = 0.5
 [node name="welcome" type="RichTextLabel" parent="." unique_id=681881303]
 modulate = Color(1, 1, 1, 0)
 z_index = 2
-offset_left = 376.0
-offset_top = 370.0
-offset_right = 1032.0
-offset_bottom = 587.0
+offset_left = 312.0
+offset_top = 160.0
+offset_right = 968.0
+offset_bottom = 377.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 36
-text = "			collect checkpoints
-
-
-in certain stages"
+theme_override_font_sizes/normal_font_size = 39
+text = "use levers to
+toggle  Things"
 scroll_active = false
 
 [node name="finish" parent="." unique_id=867881143 instance=ExtResource("6_olxdc")]
 
 [node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
-polygon = PackedVector2Array(1208, 320, 1240, 280, 1104, 136, 1064, 176)
+polygon = PackedVector2Array(1240, 600, 1240, 480, 1200, 480, 1200, 600)
 
 [node name="Timer2" type="Timer" parent="." unique_id=1560735701]
 wait_time = 4.0
@@ -111,32 +74,69 @@ one_shot = true
 [node name="failsafe" type="Timer" parent="." unique_id=1392096894]
 wait_time = 8.0
 
-[node name="Orb" parent="." unique_id=1994661621 instance=ExtResource("7_afn4x")]
-position = Vector2(512, 408)
-scale = Vector2(0.5, 0.5)
-
 [node name="slippy" parent="." unique_id=1387181598 instance=ExtResource("8_luatw")]
 
 [node name="DefiningPolygon" parent="slippy/Area2D" parent_id_path=PackedInt32Array(1387181598, 1383793953) index="0" unique_id=211952364]
-polygon = PackedVector2Array(288, 112, 288, 568, 280, 560, 280, 120)
+polygon = PackedVector2Array(1240, 40, 632, 40, 632, 440, 576, 544, 488, 616, 384, 656, 120, 680, 1240, 680)
 
-[node name="Orb2" parent="." unique_id=1280536243 instance=ExtResource("9_akonu")]
-position = Vector2(992, 416)
+[node name="slippy2" parent="." unique_id=746057252 instance=ExtResource("8_luatw")]
+position = Vector2(1200, 0)
+scale = Vector2(-1, 1)
+
+[node name="DefiningPolygon" parent="slippy2/Area2D" parent_id_path=PackedInt32Array(746057252, 1383793953) index="0" unique_id=211952364]
+polygon = PackedVector2Array(1160, 40, 616, 40, 616, 248, 576, 432, 536, 512, 480, 560, 416, 576, -40, 576, -40, 680, 1160, 680)
+
+[node name="Orb" parent="." unique_id=1994661621 instance=ExtResource("9_akonu")]
+position = Vector2(328, 256)
 scale = Vector2(0.5, 0.5)
 
-[node name="Orb3" parent="." unique_id=545416298 instance=ExtResource("9_akonu")]
-position = Vector2(1064, 352)
+[node name="Lever" parent="." unique_id=1523241353 instance=ExtResource("9_hl8yq")]
+position = Vector2(136, 136)
 scale = Vector2(0.5, 0.5)
 
-[connection signal="pressed" from="Camera2D/retrybutton" to="." method="_on_retrybutton_pressed"]
-[connection signal="pressed" from="Camera2D/complete/Button" to="." method="_on_comp_button_pressed"]
+[node name="CamTrigger" type="Area2D" parent="." unique_id=1829257405]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamTrigger" unique_id=207119408]
+position = Vector2(984, 112)
+shape = SubResource("RectangleShape2D_4d047")
+debug_color = Color(0.828125, 1, 0, 0.41960785)
+
+[node name="secretfloor" type="Area2D" parent="." unique_id=136918815]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="secretfloor" unique_id=1360289590]
+position = Vector2(1033.5, 268.5)
+shape = SubResource("RectangleShape2D_hl8yq")
+
+[node name="slippy3" parent="." unique_id=1581366302 instance=ExtResource("8_luatw")]
+
+[node name="DefiningPolygon" parent="slippy3/Area2D" parent_id_path=PackedInt32Array(1581366302, 1383793953) index="0" unique_id=211952364]
+polygon = PackedVector2Array(2008, 232, 1792, 448, 1496, 448, 1280, 232, 1280, 720, 2008, 720)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=300433391]
+offset_left = 1472.0
+offset_top = 192.0
+offset_right = 1680.0
+offset_bottom = 215.0
+text = "add secret here lol"
+fit_content = true
+
+[connection signal="pressed" from="Camera2D/complete/Button" to="." method="next_level"]
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="failsafe" to="." method="its_okay"]
+[connection signal="pressed" from="Lever/Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="CamTrigger" to="." method="_on_cam_trigger_body_entered"]
 
+[editable path="Camera2D"]
 [editable path="Camera2D/complete"]
 [editable path="bobby"]
 [editable path="finish"]
 [editable path="slippy"]
+[editable path="slippy2"]
+[editable path="Lever"]
+[editable path="slippy3"]

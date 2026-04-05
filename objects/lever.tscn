@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b3tj74wxf8ycn"]
 
 [ext_resource type="Texture2D" uid="uid://qsh3kdynjody" path="res://assets/lever.svg" id="1_0ohsc"]
-[ext_resource type="Script" uid="uid://bkojtlk873unw" path="res://lever.gd" id="1_1btnt"]
+[ext_resource type="Script" uid="uid://bkojtlk873unw" path="res://objects/lever.gd" id="1_1btnt"]
 [ext_resource type="Shader" uid="uid://bmdrfjy1iceio" path="res://lever.gdshader" id="2_7uavd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ohsc"]
@@ -40,4 +40,4 @@ toggle_mode = true
 material = SubResource("ShaderMaterial_soi7j")
 texture = ExtResource("1_0ohsc")
 
-[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

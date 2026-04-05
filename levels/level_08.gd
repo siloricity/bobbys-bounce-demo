@@ -1,17 +1,14 @@
 extends Node2D
 var progress: int = 0
 func _ready():
-	$Orb.checkpoint.connect(enable_checkpoint)
+	$slippy2.collision_layer = 0
+	$slippy2.modulate.a = 0.2
 	$bobby.death.connect(its_okay)
-	if global.checkpoint_lv == 1:
-		$Orb.disable()
-		$bobby.position = $Orb.position
-	else:
-		# intro sequence animation
-		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		tween.tween_property($welcome,"modulate:a",1,1.2)
-		tween.parallel().tween_property($welcome,"position:y",310,1.2)
-		progress = 1
+	# intro sequence animation
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property($welcome,"modulate:a",1,1.2)
+	tween.parallel().tween_property($welcome,"position:y",100,1.2)
+	progress = 1
 func _input(_InputEvent):
 	if Input.is_action_just_pressed("click"):
 		if progress == 1: # fade out intro sequence
@@ -27,14 +24,8 @@ func _input(_InputEvent):
 		$Timer.stop()
 		if $failsafe.is_stopped():
 			$failsafe.start()
-func enable_checkpoint():
-	if global.checkpoint_lv == 1: pass
-	else:
-		global.checkpoint_lv += 1
 func its_okay():
-	$%retrybutton.disabled = false
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property($%retrybutton,"modulate:a",1,1.2)
+	$Camera2D/retrybutton.appear()
 # spawn ghosts
 func _on_timer_timeout() -> void:
 	var ghost = $bobby.ghost.instantiate()
@@ -44,24 +35,36 @@ func _on_timer_timeout() -> void:
 func _on_finish_body_entered(body: Node2D) -> void:
 	if body == $bobby:
 		$bobby.dead = true
-		$%retrybutton.disabled = false
-		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		tween.tween_property($%complete,"position:y",330,1)
-		tween.parallel().tween_property($%retrybutton,"modulate:a",1,1.2)
+		$Camera2D.finish()
 		var dict = saveman.load_game().duplicate()
 		if dict["level07"] != 1:
 			dict["level07"] = 1
 			dict["levels_completed"] += 1
 			saveman.save_game(dict)
-# next level
-func _on_comp_button_pressed() -> void:
+## move to next level
+func next_level() -> void:
 	global.checkpoint_lv = 0
 	get_tree().change_scene_to_file("res://title.tscn")
-# retry button
-func _on_retrybutton_pressed() -> void:
-	get_tree().reload_current_scene()
-# move camera trigger
-func _on_cam_trigger_body_entered(body: Node2D) -> void:
-	if body.name == "bobby":
-		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		tween.tween_property($Camera2D,"position",Vector2(512,340),0.5)
+func _on_button_pressed() -> void:
+	if $slippy2/Area2D.get_overlapping_bodies():
+		$Lever.toggle = false
+	if $slippy/Area2D.get_overlapping_bodies():
+		$Lever.toggle = true
+	match $Lever.toggle:
+		true:
+			$slippy2.collision_layer = 1
+			$slippy2.modulate.a = 1
+			$slippy.collision_layer = 0
+			$slippy.modulate.a = 0.2
+		false:
+			$slippy2.collision_layer = 0
+			$slippy2.modulate.a = 0.2
+			$slippy.collision_layer = 1
+			$slippy.modulate.a = 1
+var secrets
+func _on_cam_trigger_body_entered(_body: Node2D) -> void:
+	secrets = true
+func _process(_float):
+	if secrets == true:
+		$Camera2D.position = $bobby.position - get_viewport_rect().size/2
+	

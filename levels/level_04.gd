@@ -24,9 +24,9 @@ func _input(_InputEvent):
 		if $failsafe.is_stopped():
 			$failsafe.start()
 func its_okay():
-	$%retrybutton.disabled = false
+	$Camera2D/retrybutton.disabled = false
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property($%retrybutton,"modulate:a",1,1.2)
+	tween.parallel().tween_property($Camera2D/retrybutton,"modulate:a",1,1.2)
 # spawn ghosts
 func _on_timer_timeout() -> void:
 	var ghost = $bobby.ghost.instantiate()

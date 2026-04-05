@@ -1,17 +1,10 @@
 [gd_scene format=4 uid="uid://c0qgl3jpp5f8x"]
 
 [ext_resource type="Script" uid="uid://cpir8dib0ibxg" path="res://levels/level_04.gd" id="1_6r1wt"]
+[ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://camera_2d.tscn" id="2_h8pr2"]
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="2_r78xb"]
-[ext_resource type="StyleBox" uid="uid://dl3qqsolfqsg2" path="res://assets/red_theme.tres" id="4_fvdud"]
 [ext_resource type="TileSet" uid="uid://becgik0ni3t1d" path="res://tileset.tres" id="5_6r1wt"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="5_qkyi5"]
-[ext_resource type="PackedScene" uid="uid://cm2swjqq20f0v" path="res://complete.tscn" id="6_jdr1m"]
-
-[sub_resource type="Gradient" id="Gradient_emax3"]
-colors = PackedColorArray(0.19673681, 0.13041687, 0.43359375, 1, 0.110137224, 0.07676697, 0.50390625, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_53p8g"]
-gradient = SubResource("Gradient_emax3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6r1wt"]
 size = Vector2(293, 202)
@@ -19,51 +12,7 @@ size = Vector2(293, 202)
 [node name="level04" type="Node2D" unique_id=2003739862]
 script = ExtResource("1_6r1wt")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1914967836]
-anchor_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="Camera2D" unique_id=1509605321]
-unique_name_in_owner = true
-z_index = -2
-anchors_preset = -1
-anchor_right = 0.5
-offset_left = -4.352571
-offset_top = 720.8955
-offset_right = 721.8289
-offset_bottom = 2006.3728
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5707964
-texture = SubResource("GradientTexture1D_53p8g")
-metadata/_edit_lock_ = true
-
-[node name="retrybutton" type="Button" parent="Camera2D" unique_id=621393029]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-z_index = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = 568.0
-offset_right = 313.0
-offset_bottom = 689.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 57
-theme_override_styles/normal = ExtResource("4_fvdud")
-theme_override_styles/pressed = ExtResource("4_fvdud")
-theme_override_styles/hover = ExtResource("4_fvdud")
-theme_override_styles/focus = ExtResource("4_fvdud")
-disabled = true
-text = "  retry ↺  "
-
-[node name="complete" parent="Camera2D" unique_id=576242334 instance=ExtResource("6_jdr1m")]
-unique_name_in_owner = true
-z_index = 2
-position = Vector2(640, 1080)
+[node name="Camera2D" parent="." unique_id=2144790541 instance=ExtResource("2_h8pr2")]
 
 [node name="bobby" parent="." unique_id=263530290 instance=ExtResource("2_r78xb")]
 position = Vector2(192, 224)
@@ -132,8 +81,6 @@ position = Vector2(976, 480)
 shape = SubResource("RectangleShape2D_6r1wt")
 debug_color = Color(0.828125, 1, 0, 0.41960785)
 
-[connection signal="pressed" from="Camera2D/retrybutton" to="." method="_on_retrybutton_pressed"]
-[connection signal="pressed" from="Camera2D/complete/Button" to="." method="_on_comp_button_pressed"]
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
@@ -141,6 +88,7 @@ debug_color = Color(0.828125, 1, 0, 0.41960785)
 [connection signal="timeout" from="failsafe" to="." method="its_okay"]
 [connection signal="body_entered" from="CamTrigger" to="." method="_on_cam_trigger_body_entered"]
 
+[editable path="Camera2D"]
 [editable path="Camera2D/complete"]
 [editable path="bobby"]
 [editable path="finish"]
