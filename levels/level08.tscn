@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://becgik0ni3t1d" path="res://tileset.tres" id="5_u7pi8"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="6_olxdc"]
 [ext_resource type="PackedScene" uid="uid://5gyijwt4l06v" path="res://objects/slippy.tscn" id="8_luatw"]
+[ext_resource type="PackedScene" uid="uid://do2wra1gdxmo2" path="res://objects/blendingcircle.tscn" id="9_8mvo4"]
 [ext_resource type="PackedScene" uid="uid://dffawqwb6vyu1" path="res://objects/orb.tscn" id="9_akonu"]
 [ext_resource type="PackedScene" uid="uid://b3tj74wxf8ycn" path="res://objects/lever.tscn" id="9_hl8yq"]
 
@@ -122,6 +123,10 @@ offset_right = 1680.0
 offset_bottom = 215.0
 text = "add secret here lol"
 fit_content = true
+
+[node name="BlendingCircle" parent="." unique_id=1043080191 instance=ExtResource("9_8mvo4")]
+position = Vector2(136, 128)
+scale = Vector2(1.9804115, 1.9804115)
 
 [connection signal="pressed" from="Camera2D/complete/Button" to="." method="next_level"]
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]

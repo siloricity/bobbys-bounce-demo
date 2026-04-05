@@ -4,6 +4,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1yfhx"]
 shader = ExtResource("1_p8cnl")
+shader_parameter/a = Vector3(3, 1, 0.8)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys73f"]
 corner_radius_top_left = 99
@@ -28,4 +29,5 @@ offset_right = 99.0
 offset_bottom = 99.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ys73f")

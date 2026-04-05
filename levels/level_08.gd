@@ -2,6 +2,7 @@ extends Node2D
 var progress: int = 0
 func _ready():
 	$slippy2.collision_layer = 0
+	$BlendingCircle/Panel.material.set_shader_parameter("a",Vector3(3,1,0.8))
 	$slippy2.modulate.a = 0.2
 	$bobby.death.connect(its_okay)
 	# intro sequence animation
@@ -55,11 +56,13 @@ func _on_button_pressed() -> void:
 			$slippy2.modulate.a = 1
 			$slippy.collision_layer = 0
 			$slippy.modulate.a = 0.2
+			$BlendingCircle/Panel.material.set_shader_parameter("a",Vector3(1,3,0.8))
 		false:
 			$slippy2.collision_layer = 0
 			$slippy2.modulate.a = 0.2
 			$slippy.collision_layer = 1
 			$slippy.modulate.a = 1
+			$BlendingCircle/Panel.material.set_shader_parameter("a",Vector3(3,1,0.8))
 var secrets
 func _on_cam_trigger_body_entered(_body: Node2D) -> void:
 	secrets = true
