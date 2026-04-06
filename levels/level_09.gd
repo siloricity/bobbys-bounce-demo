@@ -35,12 +35,10 @@ func _on_finish_body_entered(body: Node2D) -> void:
 		$bobby.dead = true
 		$Camera2D.finish()
 		var dict = saveman.load_game().duplicate()
-		if dict["level08"] != 1:
-			dict["level08"] = 1
+		if dict["level09"] != 1:
+			dict["level09"] = 1
 			dict["levels_completed"] += 1
 			saveman.save_game(dict)
 ## move to next level
 func next_level() -> void:
 	get_tree().change_scene_to_file("res://title.tscn")
-func _process(_delta) -> void:
-	$Camera2D.position.x = $bobby.position.x - 640

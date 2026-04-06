@@ -4,12 +4,36 @@
 [ext_resource type="Script" uid="uid://dg4pmx7mpf7vb" path="res://level_select.gd" id="1_wevku"]
 [ext_resource type="StyleBox" uid="uid://bb1nr4hls440g" path="res://assets/blue_theme.tres" id="2_wevku"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apu6u"]
+bg_color = Color(0.8515625, 0.975647, 1, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 99
+corner_radius_top_right = 99
+corner_radius_bottom_right = 99
+corner_radius_bottom_left = 99
+corner_detail = 4
+expand_margin_left = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wevku"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Theme" id="Theme_apu6u"]
+VScrollBar/constants/padding_left = 15
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_apu6u")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_apu6u")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_apu6u")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_wevku")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_wevku")
+
 [node name="LevelSelect" type="VBoxContainer" unique_id=720656899]
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 720.0
 grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_wevku")
@@ -60,26 +84,30 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2" unique_id=1998958260]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer2" unique_id=1284264166]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_apu6u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/ScrollContainer" unique_id=1998958260]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2/VBoxContainer" unique_id=216378182]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2/ScrollContainer/VBoxContainer" unique_id=216378182]
 layout_mode = 2
-size_flags_vertical = 3
 size_flags_stretch_ratio = 0.33
 theme_override_font_sizes/normal_font_size = 42
 text = "Tutorial Levels:"
 fit_content = true
 scroll_active = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/VBoxContainer" unique_id=1889717742]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/ScrollContainer/VBoxContainer" unique_id=1889717742]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="but_l1" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1285773486]
+[node name="but_l1" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1285773486]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -98,7 +126,7 @@ theme_override_styles/disabled_mirrored = ExtResource("2_wevku")
 theme_override_styles/focus = ExtResource("2_wevku")
 text = "1"
 
-[node name="but_l2" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=380533808]
+[node name="but_l2" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=380533808]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -118,7 +146,7 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "2"
 
-[node name="but_l3" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=2069956522]
+[node name="but_l3" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2069956522]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -138,7 +166,7 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "3"
 
-[node name="but_l4" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=827993977]
+[node name="but_l4" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=827993977]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -158,7 +186,7 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "4"
 
-[node name="but_l5" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1167788154]
+[node name="but_l5" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1167788154]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -178,13 +206,14 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "5"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer2/VBoxContainer" unique_id=538746330]
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer2/ScrollContainer/VBoxContainer" unique_id=538746330]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="but_l6" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer3" unique_id=1837628303]
+[node name="but_l6" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1837628303]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 136)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -203,7 +232,7 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "6"
 
-[node name="but_l7" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer3" unique_id=358954233]
+[node name="but_l7" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=358954233]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -223,7 +252,7 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "7"
 
-[node name="but_l8" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer3" unique_id=2079478739]
+[node name="but_l8" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=2079478739]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -243,7 +272,7 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "8"
 
-[node name="but_l9" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer3" unique_id=2087146984]
+[node name="but_l9" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=2087146984]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -263,7 +292,7 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "9"
 
-[node name="but_l10" type="Button" parent="HBoxContainer2/VBoxContainer/HBoxContainer3" unique_id=46226310]
+[node name="but_l10" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=46226310]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -283,16 +312,211 @@ theme_override_styles/focus = ExtResource("2_wevku")
 disabled = true
 text = "10"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer2/VBoxContainer" unique_id=1367899415]
+[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer2/ScrollContainer/VBoxContainer" unique_id=1367899415]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 42
 text = "Other Levels:"
 fit_content = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2/VBoxContainer" unique_id=943798012]
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer2/ScrollContainer/VBoxContainer" unique_id=1517454713]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="but_l6" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1259351812]
+custom_minimum_size = Vector2(0, 136)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "6"
+
+[node name="but_l7" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=215970196]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "7"
+
+[node name="but_l8" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1518549456]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "8"
+
+[node name="but_l9" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=870428483]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "9"
+
+[node name="but_l10" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=271495597]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "10"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="HBoxContainer2/ScrollContainer/VBoxContainer" unique_id=1843671814]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="but_l6" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=2124460159]
+custom_minimum_size = Vector2(0, 136)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "6"
+
+[node name="but_l7" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=8622211]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "7"
+
+[node name="but_l8" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=699556274]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "8"
+
+[node name="but_l9" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=107472659]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "9"
+
+[node name="but_l10" type="Button" parent="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1973545386]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("2_wevku")
+theme_override_styles/normal_mirrored = ExtResource("2_wevku")
+theme_override_styles/pressed = ExtResource("2_wevku")
+theme_override_styles/pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover = ExtResource("2_wevku")
+theme_override_styles/hover_mirrored = ExtResource("2_wevku")
+theme_override_styles/hover_pressed = ExtResource("2_wevku")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_wevku")
+theme_override_styles/disabled = ExtResource("1_vomi7")
+theme_override_styles/disabled_mirrored = ExtResource("1_vomi7")
+theme_override_styles/focus = ExtResource("2_wevku")
+disabled = true
+text = "10"
 
 [node name="Control2" type="Control" parent="HBoxContainer2" unique_id=1910355970]
 layout_mode = 2
@@ -300,13 +524,23 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
 [connection signal="pressed" from="HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l1" to="." method="_on_but_pressed" binds= [1]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l2" to="." method="_on_but_pressed" binds= [2]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l3" to="." method="_on_but_pressed" binds= [3]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l4" to="." method="_on_but_pressed" binds= [4]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer/but_l5" to="." method="_on_but_pressed" binds= [5]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer3/but_l6" to="." method="_on_but_pressed" binds= [6]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer3/but_l7" to="." method="_on_but_pressed" binds= [7]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer3/but_l8" to="." method="_on_but_pressed" binds= [8]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer3/but_l9" to="." method="_on_but_pressed" binds= [8]]
-[connection signal="pressed" from="HBoxContainer2/VBoxContainer/HBoxContainer3/but_l10" to="." method="_on_but_pressed" binds= [8]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer/but_l1" to="." method="_on_but_pressed" binds= [1]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer/but_l2" to="." method="_on_but_pressed" binds= [2]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer/but_l3" to="." method="_on_but_pressed" binds= [3]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer/but_l4" to="." method="_on_but_pressed" binds= [4]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer/but_l5" to="." method="_on_but_pressed" binds= [5]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l6" to="." method="_on_but_pressed" binds= [6]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l7" to="." method="_on_but_pressed" binds= [7]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l8" to="." method="_on_but_pressed" binds= [8]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l9" to="." method="_on_but_pressed" binds= [9]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l10" to="." method="_on_but_pressed" binds= [8]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4/but_l6" to="." method="_on_but_pressed" binds= [6]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4/but_l7" to="." method="_on_but_pressed" binds= [7]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4/but_l8" to="." method="_on_but_pressed" binds= [8]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4/but_l9" to="." method="_on_but_pressed" binds= [9]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer4/but_l10" to="." method="_on_but_pressed" binds= [8]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5/but_l6" to="." method="_on_but_pressed" binds= [6]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5/but_l7" to="." method="_on_but_pressed" binds= [7]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5/but_l8" to="." method="_on_but_pressed" binds= [8]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5/but_l9" to="." method="_on_but_pressed" binds= [9]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer5/but_l10" to="." method="_on_but_pressed" binds= [8]]

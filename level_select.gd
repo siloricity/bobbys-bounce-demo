@@ -16,6 +16,8 @@ func _ready():
 		$%but_l7.disabled = false
 	if save["level07"] == 1:
 		$%but_l8.disabled = false
+	if save["level08"] == 1:
+		$%but_l9.disabled = false
 func _on_but_pressed(num: int) -> void:
 	var path = "res://levels/level"
 	match num:
@@ -27,6 +29,8 @@ func _on_but_pressed(num: int) -> void:
 		6: change(path+"06.tscn")
 		7: change(path+"07.tscn")
 		8: change(path+"08.tscn")
+		9: change(path+"09.tscn")
+		
 func change(level):
 	get_tree().change_scene_to_file(level)
 func _on_back_button_pressed() -> void:
