@@ -34,6 +34,9 @@ func _process(_delta):
 	if Input.is_action_just_released("click"):
 		if dead == false:
 			if global.refresh_jump == true:
+				var init = self.linear_velocity
+				self.linear_velocity = vel.limit_length(max_sling*2)
+				self.linear_velocity *= Vector2(999,999).limit_length(init.length())
 				global.refresh_jump = false
 			star.hide()
 			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
