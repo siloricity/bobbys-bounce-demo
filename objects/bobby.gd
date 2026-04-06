@@ -25,8 +25,8 @@ func _process(_delta):
 			star.show()
 			line.show()
 			line_guide.position=(mouse-self.global_position).limit_length(max_sling)
-			self.look_at(mouse)
-			self.rotation_degrees -= 90
+			$Sprite2D.look_at(mouse)
+			$Sprite2D.rotation_degrees -= 90
 			if global.refresh_jump == false:
 				self.linear_velocity = Vector2.ZERO
 			star.global_position = mouse
