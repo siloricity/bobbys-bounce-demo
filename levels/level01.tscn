@@ -4,13 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="2_ucm2n"]
 [ext_resource type="Texture2D" uid="uid://dy1esumpg467t" path="res://assets/tileset.png" id="3_ogl2o"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="4_emax3"]
-[ext_resource type="PackedScene" uid="uid://cm2swjqq20f0v" path="res://complete.tscn" id="5_53p8g"]
-
-[sub_resource type="Gradient" id="Gradient_emax3"]
-colors = PackedColorArray(0.19673681, 0.13041687, 0.43359375, 1, 0.110137224, 0.07676697, 0.50390625, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_53p8g"]
-gradient = SubResource("Gradient_emax3")
+[ext_resource type="PackedScene" uid="uid://d87swp007vdp" path="res://textbox.tscn" id="6_vxcwb"]
+[ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="7_ed0h8"]
+[ext_resource type="PackedScene" uid="uid://8y6n7q5jibey" path="res://level_code.tscn" id="7_kxijb"]
+[ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://overlay.tscn" id="8_x5epe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cy10"]
 texture = ExtResource("3_ogl2o")
@@ -45,20 +42,6 @@ sources/0 = SubResource("TileSetAtlasSource_0cy10")
 [node name="level01" type="Node2D" unique_id=2003739862]
 script = ExtResource("1_vsh7h")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1509605321]
-z_index = -2
-anchors_preset = -1
-anchor_right = 0.5
-offset_left = -4.352571
-offset_top = 720.8955
-offset_right = 721.8289
-offset_bottom = 2006.3728
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5707964
-texture = SubResource("GradientTexture1D_53p8g")
-metadata/_edit_lock_ = true
-
 [node name="bobby" parent="." unique_id=263530290 instance=ExtResource("2_ucm2n")]
 position = Vector2(640, 360)
 contact_monitor = true
@@ -74,26 +57,6 @@ tile_set = SubResource("TileSet_t65pu")
 [node name="Timer" type="Timer" parent="." unique_id=988185058]
 wait_time = 0.5
 
-[node name="welcome" type="RichTextLabel" parent="." unique_id=681881303]
-modulate = Color(1, 1, 1, 0)
-offset_left = 95.0
-offset_top = 175.0
-offset_right = 576.0
-offset_bottom = 359.0
-theme_override_font_sizes/normal_font_size = 59
-text = "welcome to bobby's bounce"
-scroll_active = false
-
-[node name="welcome2" type="RichTextLabel" parent="." unique_id=663155662]
-modulate = Color(1, 1, 1, 0)
-offset_left = 95.0
-offset_top = 341.0
-offset_right = 576.0
-offset_bottom = 525.0
-theme_override_font_sizes/normal_font_size = 48
-text = "click to get started"
-scroll_active = false
-
 [node name="finish" parent="." unique_id=867881143 instance=ExtResource("4_emax3")]
 position = Vector2(-384, 752)
 
@@ -104,14 +67,40 @@ polygon = PackedVector2Array(232, 168, 1920, 168, 1920, 64, 232, 64)
 wait_time = 4.0
 one_shot = true
 
-[node name="complete" parent="." unique_id=576242334 instance=ExtResource("5_53p8g")]
-position = Vector2(640, 1080)
+[node name="textbox" parent="." unique_id=88885798 instance=ExtResource("6_vxcwb")]
+offset_left = 104.0
+offset_top = 104.0
+offset_right = 552.0
+offset_bottom = 224.0
+text = "welcome to
+bobby's bounce"
+text_size = 59
+
+[node name="textbox2" parent="." unique_id=1627460778 instance=ExtResource("6_vxcwb")]
+offset_left = 104.0
+offset_top = 264.0
+offset_right = 552.0
+offset_bottom = 384.0
+text = "click to get started"
+text_size = 48
+auto_start = false
+
+[node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node") instance=ExtResource("7_kxijb")]
+bobby_node = NodePath("../bobby")
+
+[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("7_ed0h8")]
+
+[node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("8_x5epe")]
 
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
-[connection signal="pressed" from="complete/Button" to="." method="_on_comp_button_pressed"]
+[connection signal="full_appear" from="textbox" to="." method="_on_textbox_full_appear"]
+[connection signal="full_appear" from="textbox2" to="." method="_on_textbox_2_full_appear"]
+[connection signal="pressed" from="Overlay/complete/Button" to="." method="_on_comp_button_pressed"]
 
 [editable path="finish"]
-[editable path="complete"]
+[editable path="BGgradient"]
+[editable path="Overlay"]
+[editable path="Overlay/complete"]

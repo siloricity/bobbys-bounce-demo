@@ -30,7 +30,6 @@ func _on_but_pressed(num: int) -> void:
 		7: change(path+"07.tscn")
 		8: change(path+"08.tscn")
 		9: change(path+"09.tscn")
-		
 func change(level):
 	get_tree().change_scene_to_file(level)
 func _on_back_button_pressed() -> void:
