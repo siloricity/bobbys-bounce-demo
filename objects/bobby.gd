@@ -1,11 +1,11 @@
-class_name bobby
+class_name bobby ## The main playable character (boing)
 extends RigidBody2D
-@onready var star := $star
+@onready var star := $star ## the star overlay of where you click
 @onready var line := $Line2D ## sling line
 @onready var line_guide := $LineGuidance ## tells line position to tween
 @onready var bump_sfx := $BumpSound ## audio node for regular tiles
 @onready var roll_sfx := $RollSound ## audio node for slippery walls
-@onready var roll_tmr := $RollTimer
+@onready var roll_tmr := $RollTimer ## timer prevent roll cutting out
 @export var sling_multiplier:float
 @export var max_sling:int
 @export var ghost: PackedScene
