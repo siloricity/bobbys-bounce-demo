@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d87swp007vdp"]
+
+[ext_resource type="Script" uid="uid://cfcojfoxjw4ef" path="res://textbox.gd" id="1_vng66"]
+
+[node name="textbox" type="RichTextLabel" unique_id=88885798]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -192.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 44
+text = "error... i messed up bad"
+fit_content = true
+script = ExtResource("1_vng66")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1123350313]

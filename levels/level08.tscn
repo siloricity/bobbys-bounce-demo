@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://do2wra1gdxmo2" path="res://objects/blendingcircle.tscn" id="9_8mvo4"]
 [ext_resource type="PackedScene" uid="uid://dffawqwb6vyu1" path="res://objects/orb.tscn" id="9_akonu"]
 [ext_resource type="PackedScene" uid="uid://b3tj74wxf8ycn" path="res://objects/lever.tscn" id="9_hl8yq"]
+[ext_resource type="PackedScene" uid="uid://d87swp007vdp" path="res://textbox.tscn" id="11_ij7pc"]
+[ext_resource type="PackedScene" uid="uid://8y6n7q5jibey" path="res://level_code.tscn" id="12_yekxc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d047"]
 size = Vector2(293, 202)
@@ -23,6 +25,10 @@ script = ExtResource("1_hl8yq")
 [node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("2_8mvo4")]
 
 [node name="Overlay" parent="." unique_id=2144790541 instance=ExtResource("2_4d047")]
+
+[node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("12_yekxc")]
+bobby_node = NodePath("../bobby")
+failsafe_node = NodePath("../failsafe")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=144165030]
 anchor_mode = 0
@@ -56,27 +62,10 @@ tile_set = ExtResource("5_u7pi8")
 [node name="Timer" type="Timer" parent="." unique_id=988185058]
 wait_time = 0.5
 
-[node name="welcome" type="RichTextLabel" parent="." unique_id=681881303]
-modulate = Color(1, 1, 1, 0)
-z_index = 2
-offset_left = 312.0
-offset_top = 160.0
-offset_right = 968.0
-offset_bottom = 377.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 39
-text = "use levers to
-toggle  Things"
-scroll_active = false
-
 [node name="finish" parent="." unique_id=867881143 instance=ExtResource("6_olxdc")]
 
 [node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
 polygon = PackedVector2Array(1240, 600, 1240, 480, 1200, 480, 1200, 600)
-
-[node name="Timer2" type="Timer" parent="." unique_id=1560735701]
-wait_time = 4.0
-one_shot = true
 
 [node name="failsafe" type="Timer" parent="." unique_id=1392096894]
 wait_time = 8.0
@@ -134,11 +123,18 @@ fit_content = true
 position = Vector2(136, 128)
 scale = Vector2(1.9804115, 1.9804115)
 
+[node name="textbox" parent="." unique_id=88885798 instance=ExtResource("11_ij7pc")]
+offset_left = 288.0
+offset_top = 56.0
+offset_right = 736.0
+offset_bottom = 176.0
+text = "use levers to
+toggle  Things"
+
 [connection signal="pressed" from="Overlay/complete/Button" to="." method="next_level"]
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="failsafe" to="." method="its_okay"]
 [connection signal="pressed" from="Lever/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="CamTrigger" to="." method="_on_cam_trigger_body_entered"]

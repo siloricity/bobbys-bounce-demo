@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://8y6n7q5jibey"]
+
+[ext_resource type="Script" uid="uid://cqn54xpwifnmn" path="res://level_code.gd" id="1_8qvty"]
+
+[node name="level_code" type="Node" unique_id=418214626]
+script = ExtResource("1_8qvty")
+
+[node name="Timer" type="Timer" parent="." unique_id=36423046]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
