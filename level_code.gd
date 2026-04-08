@@ -5,7 +5,7 @@ extends Node
 @onready var timer_node: Timer = $Timer
 
 func _input(_InputEvent):
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") and can_ghost:
 	# logic to enable timer for ghost
 		if bobby_node.dead == true: pass
 		else:
@@ -14,7 +14,7 @@ func _input(_InputEvent):
 			bobby_node.dead = true
 	if Input.is_action_just_released("click"):
 		timer_node.stop()
-		if failsafe_node.is_stopped():
+		if failsafe_node and failsafe_node.is_stopped():
 			failsafe_node.start()
 # spawn ghosts
 func _on_timer_timeout() -> void:
