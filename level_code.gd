@@ -1,4 +1,5 @@
 extends Node
+@export var can_ghost: bool
 @export var bobby_node: bobby
 @export var failsafe_node: Timer
 @onready var timer_node: Timer = $Timer

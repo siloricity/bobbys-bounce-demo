@@ -20,5 +20,3 @@ theme_override_font_sizes/normal_font_size = 44
 text = "error... i messed up bad"
 fit_content = true
 script = ExtResource("1_vng66")
-
-[node name="Node2D" type="Node2D" parent="." unique_id=1123350313]
