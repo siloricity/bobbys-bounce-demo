@@ -26,6 +26,7 @@ func _input(_InputEvent):
 				tween.tween_property($finish,"position:y",528,1)
 func _on_timer_2_timeout() -> void:
 	progress = 4
+	$textbox.position.y += 40
 	$textbox.text = "drag to fling bobby around"
 	$textbox.appear()
 # finish box signal
