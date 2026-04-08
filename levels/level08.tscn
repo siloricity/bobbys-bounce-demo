@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://bles14hf10ihj"]
 
 [ext_resource type="Script" uid="uid://3vpkuovpahcw" path="res://levels/level_08.gd" id="1_hl8yq"]
-[ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://camera_2d.tscn" id="2_4d047"]
+[ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://overlay.tscn" id="2_4d047"]
+[ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="2_8mvo4"]
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="4_yekxc"]
 [ext_resource type="TileSet" uid="uid://becgik0ni3t1d" path="res://tileset.tres" id="5_u7pi8"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="6_olxdc"]
@@ -19,7 +20,12 @@ size = Vector2(480, 97)
 [node name="level08" type="Node2D" unique_id=2003739862]
 script = ExtResource("1_hl8yq")
 
-[node name="Camera2D" parent="." unique_id=2144790541 instance=ExtResource("2_4d047")]
+[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("2_8mvo4")]
+
+[node name="Overlay" parent="." unique_id=2144790541 instance=ExtResource("2_4d047")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=144165030]
+anchor_mode = 0
 
 [node name="bobby" parent="." unique_id=263530290 instance=ExtResource("4_yekxc")]
 position = Vector2(168, 272)
@@ -128,7 +134,7 @@ fit_content = true
 position = Vector2(136, 128)
 scale = Vector2(1.9804115, 1.9804115)
 
-[connection signal="pressed" from="Camera2D/complete/Button" to="." method="next_level"]
+[connection signal="pressed" from="Overlay/complete/Button" to="." method="next_level"]
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
@@ -137,8 +143,9 @@ scale = Vector2(1.9804115, 1.9804115)
 [connection signal="pressed" from="Lever/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="CamTrigger" to="." method="_on_cam_trigger_body_entered"]
 
-[editable path="Camera2D"]
-[editable path="Camera2D/complete"]
+[editable path="BGgradient"]
+[editable path="Overlay"]
+[editable path="Overlay/complete"]
 [editable path="bobby"]
 [editable path="finish"]
 [editable path="slippy"]

@@ -1,9 +1,6 @@
 extends Node2D
 var progress: int = 0
 func _ready():
-	$slippy2.collision_layer = 0
-	$BlendingCircle/Panel.material.set_shader_parameter("a",Vector3(3,1,0.8))
-	$slippy2.modulate.a = 0.2
 	$bobby.death.connect(its_okay)
 	# intro sequence animation
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
@@ -19,14 +16,14 @@ func _input(_InputEvent):
 		if $bobby.dead == true: pass
 		else:
 			$Timer.start()
-		if $bobby.linear_velocity != Vector2.ZERO:
+		if $bobby.linear_velocity != Vector2.ZERO and global.refresh_jump == false:
 			$bobby.dead = true
 	if Input.is_action_just_released("click"):
 		$Timer.stop()
 		if $failsafe.is_stopped():
 			$failsafe.start()
 func its_okay():
-	$Overlay/retrybutton.appear()
+	$Camera2D/retrybutton.appear()
 # spawn ghosts
 func _on_timer_timeout() -> void:
 	var ghost = $bobby.ghost.instantiate()
@@ -36,37 +33,16 @@ func _on_timer_timeout() -> void:
 func _on_finish_body_entered(body: Node2D) -> void:
 	if body == $bobby:
 		$bobby.dead = true
-		$Overlay.finish()
+		$Camera2D.finish()
 		var dict = saveman.load_game().duplicate()
-		if dict["level08"] != 1:
-			dict["level08"] = 1
+		if dict["level09"] != 1:
+			dict["level09"] = 1
 			dict["levels_completed"] += 1
 			saveman.save_game(dict)
 ## move to next level
 func next_level() -> void:
-	get_tree().change_scene_to_file("res://levels/level09.tscn")
-func _on_button_pressed() -> void:
-	if $slippy2/Area2D.get_overlapping_bodies():
-		$Lever.toggle = false
-	if $slippy/Area2D.get_overlapping_bodies():
-		$Lever.toggle = true
-	match $Lever.toggle:
-		true:
-			$slippy2.collision_layer = 1
-			$slippy2.modulate.a = 1
-			$slippy.collision_layer = 0
-			$slippy.modulate.a = 0.2
-			$BlendingCircle/Panel.material.set_shader_parameter("a",Vector3(1,3,0.8))
-		false:
-			$slippy2.collision_layer = 0
-			$slippy2.modulate.a = 0.2
-			$slippy.collision_layer = 1
-			$slippy.modulate.a = 1
-			$BlendingCircle/Panel.material.set_shader_parameter("a",Vector3(3,1,0.8))
-var secrets
-func _on_cam_trigger_body_entered(_body: Node2D) -> void:
-	secrets = true
-func _process(_float):
-	if secrets == true:
-		$Camera2D.position = $bobby.position - get_viewport_rect().size/2
-	
+	get_tree().change_scene_to_file("res://title.tscn")
+
+
+func _on_cam_trigger_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
