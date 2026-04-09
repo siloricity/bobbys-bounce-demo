@@ -1,68 +1,19 @@
 [gd_scene format=4 uid="uid://ofull5ksdno0"]
 
 [ext_resource type="Script" uid="uid://mbtmgfo3j55j" path="res://levels/level_06.gd" id="1_ntv8x"]
-[ext_resource type="StyleBox" uid="uid://dl3qqsolfqsg2" path="res://assets/red_theme.tres" id="2_ntv8x"]
-[ext_resource type="PackedScene" uid="uid://cm2swjqq20f0v" path="res://complete.tscn" id="3_756aw"]
+[ext_resource type="PackedScene" uid="uid://d87swp007vdp" path="res://textbox.tscn" id="4_756aw"]
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="4_g61hi"]
 [ext_resource type="TileSet" uid="uid://becgik0ni3t1d" path="res://tileset.tres" id="5_2hexr"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="6_dfnf4"]
 [ext_resource type="PackedScene" uid="uid://5gyijwt4l06v" path="res://objects/slippy.tscn" id="8_756aw"]
+[ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="8_g61hi"]
 [ext_resource type="PackedScene" uid="uid://dffawqwb6vyu1" path="res://objects/orb.tscn" id="8_ntv8x"]
-
-[sub_resource type="Gradient" id="Gradient_emax3"]
-colors = PackedColorArray(0.19673681, 0.13041687, 0.43359375, 1, 0.110137224, 0.07676697, 0.50390625, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_53p8g"]
-gradient = SubResource("Gradient_emax3")
+[ext_resource type="PackedScene" uid="uid://8y6n7q5jibey" path="res://level_code.tscn" id="9_2hexr"]
+[ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://overlay.tscn" id="10_g61hi"]
+[ext_resource type="PackedScene" uid="uid://dr10e4xqle7u7" path="res://levels/level07.tscn" id="11_2hexr"]
 
 [node name="level06" type="Node2D" unique_id=2003739862]
 script = ExtResource("1_ntv8x")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1914967836]
-anchor_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="Camera2D" unique_id=1509605321]
-unique_name_in_owner = true
-z_index = -2
-anchors_preset = -1
-anchor_right = 0.5
-offset_left = -4.352571
-offset_top = 720.8955
-offset_right = 721.8289
-offset_bottom = 2006.3728
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5707964
-texture = SubResource("GradientTexture1D_53p8g")
-metadata/_edit_lock_ = true
-
-[node name="retrybutton" type="Button" parent="Camera2D" unique_id=621393029]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-z_index = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = 568.0
-offset_right = 313.0
-offset_bottom = 689.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 57
-theme_override_styles/normal = ExtResource("2_ntv8x")
-theme_override_styles/pressed = ExtResource("2_ntv8x")
-theme_override_styles/hover = ExtResource("2_ntv8x")
-theme_override_styles/focus = ExtResource("2_ntv8x")
-disabled = true
-text = "  retry ↺  "
-
-[node name="complete" parent="Camera2D" unique_id=576242334 instance=ExtResource("3_756aw")]
-unique_name_in_owner = true
-z_index = 2
-position = Vector2(640, 1080)
 
 [node name="bobby" parent="." unique_id=263530290 instance=ExtResource("4_g61hi")]
 position = Vector2(256, 256)
@@ -82,28 +33,18 @@ scale = Vector2(0.4, 0.4)
 tile_map_data = PackedByteArray("AAAEAAUAAAACAAAAAAAHAA8AAAABAAAAAAAIAA8AAAABAAAAAAAJAA8AAAABAAAAAAAKAA8AAAABAAAAAAALAA8AAAABAAAAAAAMAA8AAAABAAAAAAANAA8AAAABAAAAAAAOAA8AAAABAAAAAAAPAA8AAAABAAAAAAAQAA8AAAABAAAAAAAMAAUAAAACAAAAAAAFAAkAAAACAAAAADALAAkAAAACAAAAADAEAAEAAAACAAAAADAMAAEAAAACAAAAADAGAAkAAAABAAAAADAHAAkAAAABAAAAADAIAAkAAAABAAAAADAJAAkAAAABAAAAADAKAAkAAAABAAAAADAHAAMAAAABAAAAAGAHAAIAAAABAAAAAGAJAAIAAAABAAAAAFAJAAMAAAABAAAAAFARAAgAAAACAAAAAAAQAAoAAAABAAAAADASAAoAAAABAAAAADA=")
 tile_set = ExtResource("5_2hexr")
 
-[node name="Timer" type="Timer" parent="." unique_id=988185058]
-wait_time = 0.5
-
-[node name="welcome" type="RichTextLabel" parent="." unique_id=681881303]
-modulate = Color(1, 1, 1, 0)
-z_index = 2
-offset_left = 400.0
-offset_top = 240.0
-offset_right = 1056.0
-offset_bottom = 424.0
-theme_override_font_sizes/normal_font_size = 51
+[node name="textbox" parent="." unique_id=88885798 instance=ExtResource("4_756aw")]
+offset_left = 416.0
+offset_top = 112.0
+offset_right = 1200.0
+offset_bottom = 232.0
 text = "clear walls are slippery"
-scroll_active = false
+text_size = 51
 
 [node name="finish" parent="." unique_id=867881143 instance=ExtResource("6_dfnf4")]
 
 [node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
 polygon = PackedVector2Array(480, 320, 480, 240, 360, 240, 360, 320)
-
-[node name="Timer2" type="Timer" parent="." unique_id=1560735701]
-wait_time = 4.0
-one_shot = true
 
 [node name="failsafe" type="Timer" parent="." unique_id=1392096894]
 wait_time = 8.0
@@ -130,16 +71,25 @@ polygon = PackedVector2Array(24, 616, 192, 616, 192, 584, 144, 576, 104, 552, 80
 [node name="DefiningPolygon" parent="slippy2/Area2D" parent_id_path=PackedInt32Array(745699368, 1383793953) index="0" unique_id=211952364]
 polygon = PackedVector2Array(840, 600, 952, 592, 1032, 576, 1112, 544, 1168, 480, 1200, 408, 1216, 312, 1216, 216, 1192, 160, 1128, 96, 1024, 56, 856, 40, 856, 24, 1240, 40, 1264, 600, 848, 616)
 
-[connection signal="pressed" from="Camera2D/retrybutton" to="." method="_on_retrybutton_pressed"]
-[connection signal="pressed" from="Camera2D/complete/Button" to="." method="_on_comp_button_pressed"]
+[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("8_g61hi")]
+
+[node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("9_2hexr")]
+can_ghost = true
+bobby_node = NodePath("../bobby")
+failsafe_node = NodePath("../failsafe")
+
+[node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("10_g61hi")]
+
+[node name="complete" parent="Overlay" index="1" unique_id=576242334]
+next_scene = ExtResource("11_2hexr")
+
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="failsafe" to="." method="its_okay"]
 
-[editable path="Camera2D/complete"]
 [editable path="bobby"]
 [editable path="finish"]
 [editable path="slippy"]
 [editable path="slippy2"]
+[editable path="Overlay"]
+[editable path="Overlay/complete"]
