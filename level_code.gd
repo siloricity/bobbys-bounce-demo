@@ -10,8 +10,8 @@ func _input(_InputEvent):
 		if bobby_node.dead == true: pass
 		else:
 			timer_node.start()
-		if bobby_node.linear_velocity != Vector2.ZERO:
-			bobby_node.dead = true
+	if bobby_node.linear_velocity != Vector2.ZERO:
+		bobby_node.dead = true
 	if Input.is_action_just_released("click"):
 		timer_node.stop()
 		if failsafe_node and failsafe_node.is_stopped():
