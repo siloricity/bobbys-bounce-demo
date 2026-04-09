@@ -62,7 +62,6 @@ tile_map_data = PackedByteArray("AAAHAAYAAAACAAAAAAAMAAYAAAACAAAAAAABAAsAAAABAAA
 tile_set = SubResource("TileSet_t65pu")
 
 [node name="textbox" parent="." unique_id=88885798 instance=ExtResource("7_op2ih")]
-z_index = 1
 offset_left = 256.0
 offset_top = 384.0
 offset_right = 704.0
@@ -85,12 +84,12 @@ wait_time = 8.0
 [node name="complete" parent="Overlay" index="1" unique_id=576242334]
 next_scene = ExtResource("7_ri3il")
 
+[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("9_bsp3h")]
+
 [node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("8_ri3il")]
 can_ghost = true
 bobby_node = NodePath("../bobby")
 failsafe_node = NodePath("../failsafe")
-
-[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("9_bsp3h")]
 
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="death" from="bobby" to="." method="its_okay"]
