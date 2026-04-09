@@ -1,7 +1,4 @@
 extends Node2D
-var progress: int = 0
-func _ready():
-	$bobby.death.connect(its_okay)
 func its_okay():
 	$textbox.text = "it's okay to fail"
 	$textbox.appear(true)

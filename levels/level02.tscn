@@ -116,6 +116,7 @@ bobby_node = NodePath("../bobby")
 failsafe_node = NodePath("../failsafe")
 
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
+[connection signal="death" from="bobby" to="." method="its_okay"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="retrybutton" to="." method="_on_retrybutton_pressed"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]

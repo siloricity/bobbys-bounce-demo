@@ -1,12 +1,14 @@
 extends RichTextLabel
 @export_range(30,60) var text_size: int = 44
 @export var auto_start: bool = true
+@export var blue: bool = false
 var progress: int = 0
 signal full_appear
 signal full_disappear
 func _ready():
 	self.modulate.a = 0
 	self.position.y += 40
+	if blue: self.add_theme_color_override("default_color",Color.hex(0x161660FF))
 	if text_size != 44:
 		self.add_theme_font_size_override("normal_font_size", text_size)
 	if auto_start:

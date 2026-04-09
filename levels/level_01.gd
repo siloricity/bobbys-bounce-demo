@@ -37,6 +37,3 @@ func _on_finish_body_entered(_body: Node2D) -> void:
 		dict["level01"] = 1
 		dict["levels_completed"] += 1
 		saveman.save_game(dict)
-# next level
-func _on_comp_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/level02.tscn")

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="7_ed0h8"]
 [ext_resource type="PackedScene" uid="uid://8y6n7q5jibey" path="res://level_code.tscn" id="7_kxijb"]
 [ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://overlay.tscn" id="8_x5epe"]
+[ext_resource type="PackedScene" uid="uid://ys031q5qx6ih" path="res://levels/level02.tscn" id="9_x5epe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cy10"]
 texture = ExtResource("3_ogl2o")
@@ -88,6 +89,9 @@ bobby_node = NodePath("../bobby")
 [node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("7_ed0h8")]
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("8_x5epe")]
+
+[node name="complete" parent="Overlay" index="1" unique_id=576242334]
+next_scene = ExtResource("9_x5epe")
 
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
