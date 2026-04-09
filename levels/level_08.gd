@@ -14,9 +14,6 @@ func _on_finish_body_entered(body: Node2D) -> void:
 			dict["level08"] = 1
 			dict["levels_completed"] += 1
 			saveman.save_game(dict)
-## move to next level
-func next_level() -> void:
-	get_tree().change_scene_to_file("res://levels/level09.tscn")
 # Lever switch thingamabob button
 func _on_button_pressed() -> void:
 	if $slippy2/Area2D.get_overlapping_bodies():

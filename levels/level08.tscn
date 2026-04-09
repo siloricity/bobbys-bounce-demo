@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://3vpkuovpahcw" path="res://levels/level_08.gd" id="1_hl8yq"]
 [ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://overlay.tscn" id="2_4d047"]
 [ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="2_8mvo4"]
+[ext_resource type="PackedScene" uid="uid://b2eovo4mokmmb" path="res://levels/level09.tscn" id="4_u7pi8"]
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="4_yekxc"]
 [ext_resource type="TileSet" uid="uid://becgik0ni3t1d" path="res://tileset.tres" id="5_u7pi8"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="6_olxdc"]
@@ -25,6 +26,9 @@ script = ExtResource("1_hl8yq")
 [node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("2_8mvo4")]
 
 [node name="Overlay" parent="." unique_id=2144790541 instance=ExtResource("2_4d047")]
+
+[node name="complete" parent="Overlay" index="1" unique_id=576242334]
+next_scene = ExtResource("4_u7pi8")
 
 [node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("12_yekxc")]
 bobby_node = NodePath("../bobby")
