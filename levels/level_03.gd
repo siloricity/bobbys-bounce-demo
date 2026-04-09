@@ -2,6 +2,7 @@ extends Node2D
 var progress: int = 0
 func _ready():
 	$bobby.death.connect($Overlay/retrybutton.appear)
+	$failsafe.timeout.connect($Overlay/retrybutton.appear)
 # finish box signal
 func _on_finish_body_entered(body: Node2D) -> void:
 	if body == $bobby:

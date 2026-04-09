@@ -94,7 +94,6 @@ failsafe_node = NodePath("../failsafe")
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="death" from="bobby" to="." method="its_okay"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
-[connection signal="timeout" from="failsafe" to="." method="its_okay"]
 
 [editable path="bobby"]
 [editable path="finish"]

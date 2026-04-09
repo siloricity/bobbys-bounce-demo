@@ -1,6 +1,7 @@
 extends Node2D
 func _ready():
 	$bobby.death.connect($Overlay/retrybutton.appear)
+	$failsafe.timeout.connect($Overlay/retrybutton.appear)
 	$bobby.death.connect(lmao)
 # finish box signal
 func _on_finish_body_entered(body: Node2D) -> void:
