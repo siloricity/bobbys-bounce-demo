@@ -8,12 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d87swp007vdp" path="res://textbox.tscn" id="7_op2ih"]
 [ext_resource type="PackedScene" uid="uid://c0qgl3jpp5f8x" path="res://levels/level04.tscn" id="7_ri3il"]
 [ext_resource type="PackedScene" uid="uid://8y6n7q5jibey" path="res://level_code.tscn" id="8_ri3il"]
-
-[sub_resource type="Gradient" id="Gradient_emax3"]
-colors = PackedColorArray(0.19673681, 0.13041687, 0.43359375, 1, 0.110137224, 0.07676697, 0.50390625, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_53p8g"]
-gradient = SubResource("Gradient_emax3")
+[ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="9_bsp3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cy10"]
 texture = ExtResource("3_ri3il")
@@ -48,20 +43,6 @@ sources/0 = SubResource("TileSetAtlasSource_0cy10")
 [node name="level03" type="Node2D" unique_id=2003739862]
 script = ExtResource("1_816ur")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1509605321]
-z_index = -2
-anchors_preset = -1
-anchor_right = 0.5
-offset_left = -4.352571
-offset_top = 720.8955
-offset_right = 721.8289
-offset_bottom = 2006.3728
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5707964
-texture = SubResource("GradientTexture1D_53p8g")
-metadata/_edit_lock_ = true
-
 [node name="bobby" parent="." unique_id=263530290 instance=ExtResource("2_op2ih")]
 position = Vector2(192, 224)
 contact_monitor = true
@@ -80,9 +61,6 @@ scale = Vector2(0.4, 0.4)
 tile_map_data = PackedByteArray("AAAHAAYAAAACAAAAAAAMAAYAAAACAAAAAAABAAsAAAABAAAAAAACAAsAAAABAAAAAAADAAsAAAABAAAAAAAEAAsAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_t65pu")
 
-[node name="Timer" type="Timer" parent="." unique_id=988185058]
-wait_time = 0.5
-
 [node name="textbox" parent="." unique_id=88885798 instance=ExtResource("7_op2ih")]
 z_index = 1
 offset_left = 256.0
@@ -99,10 +77,6 @@ blue = true
 [node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
 polygon = PackedVector2Array(904, 560, 1000, 560, 880, 440, 784, 440)
 
-[node name="Timer2" type="Timer" parent="." unique_id=1560735701]
-wait_time = 4.0
-one_shot = true
-
 [node name="failsafe" type="Timer" parent="." unique_id=1392096894]
 wait_time = 8.0
 
@@ -116,11 +90,11 @@ can_ghost = true
 bobby_node = NodePath("../bobby")
 failsafe_node = NodePath("../failsafe")
 
+[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("9_bsp3h")]
+
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="death" from="bobby" to="." method="its_okay"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="failsafe" to="." method="its_okay"]
 
 [editable path="bobby"]
