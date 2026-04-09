@@ -11,7 +11,10 @@ func _ready():
 		self.add_theme_font_size_override("normal_font_size", text_size)
 	if auto_start:
 		appear()
-func appear(): ## fade in text
+func appear(reappear = null): ## fade in text
+	if reappear:
+		self.modulate.a = 0
+		self.position.y += 40
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self,"modulate:a",1,1.2)
 	tween.parallel().tween_property(self,"position:y",self.position.y-40,1.2)
