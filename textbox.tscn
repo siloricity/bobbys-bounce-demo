@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cfcojfoxjw4ef" path="res://textbox.gd" id="1_vng66"]
 
 [node name="textbox" type="RichTextLabel" unique_id=88885798]
+z_index = 1
 anchors_preset = -1
 offset_right = 448.0
 offset_bottom = 120.0

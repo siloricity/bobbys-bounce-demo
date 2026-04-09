@@ -5,14 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="2_r78xb"]
 [ext_resource type="TileSet" uid="uid://becgik0ni3t1d" path="res://tileset.tres" id="5_6r1wt"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="5_qkyi5"]
+[ext_resource type="PackedScene" uid="uid://d87swp007vdp" path="res://textbox.tscn" id="6_6r1wt"]
+[ext_resource type="PackedScene" uid="uid://ctq0vpawb1mpw" path="res://levels/level05.tscn" id="7_r78xb"]
+[ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="8_fvdud"]
+[ext_resource type="PackedScene" uid="uid://8y6n7q5jibey" path="res://level_code.tscn" id="9_qkyi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6r1wt"]
 size = Vector2(293, 202)
 
 [node name="level04" type="Node2D" unique_id=2003739862]
 script = ExtResource("1_6r1wt")
-
-[node name="Camera2D" parent="." unique_id=2144790541 instance=ExtResource("2_h8pr2")]
 
 [node name="bobby" parent="." unique_id=263530290 instance=ExtResource("2_r78xb")]
 position = Vector2(192, 224)
@@ -32,42 +34,30 @@ scale = Vector2(0.4, 0.4)
 tile_map_data = PackedByteArray("AAAHAAYAAAACAAAAAAAMAAYAAAACAAAAAAABAAsAAAABAAAAAAACAAsAAAABAAAAAAADAAsAAAABAAAAAAAEAAsAAAABAAAAAAA=")
 tile_set = ExtResource("5_6r1wt")
 
-[node name="Timer" type="Timer" parent="." unique_id=988185058]
-wait_time = 0.5
-
-[node name="welcome" type="RichTextLabel" parent="." unique_id=681881303]
-modulate = Color(1, 1, 1, 0)
-z_index = 2
-offset_left = 728.0
-offset_top = 288.0
-offset_right = 1209.0
-offset_bottom = 472.0
-theme_override_colors/default_color = Color(0.13725491, 0.09411765, 0.48235294, 1)
-theme_override_font_sizes/normal_font_size = 51
+[node name="textbox" parent="." unique_id=88885798 instance=ExtResource("6_6r1wt")]
+offset_left = 744.0
+offset_top = 264.0
+offset_right = 1192.0
+offset_bottom = 384.0
 text = "some levels are
 larger than others"
-scroll_active = false
+text_size = 51
+blue = true
 
-[node name="welcome2" type="RichTextLabel" parent="." unique_id=892301216]
-modulate = Color(1, 1, 1, 0)
-z_index = 2
-offset_left = 887.0
-offset_top = 723.0
+[node name="textbox2" parent="." unique_id=1474731597 instance=ExtResource("6_6r1wt")]
+offset_left = 920.0
+offset_top = 624.0
 offset_right = 1368.0
-offset_bottom = 907.0
-theme_override_colors/default_color = Color(0.13725491, 0.09411765, 0.48235294, 1)
-theme_override_font_sizes/normal_font_size = 51
+offset_bottom = 744.0
 text = "lmaoo get fucked"
-scroll_active = false
+text_size = 51
+auto_start = false
+blue = true
 
 [node name="finish" parent="." unique_id=867881143 instance=ExtResource("5_qkyi5")]
 
 [node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
 polygon = PackedVector2Array(1360, 840, 1360, 760, 1240, 760, 1240, 840)
-
-[node name="Timer2" type="Timer" parent="." unique_id=1560735701]
-wait_time = 4.0
-one_shot = true
 
 [node name="failsafe" type="Timer" parent="." unique_id=1392096894]
 wait_time = 8.0
@@ -81,15 +71,27 @@ position = Vector2(976, 480)
 shape = SubResource("RectangleShape2D_6r1wt")
 debug_color = Color(0.828125, 1, 0, 0.41960785)
 
-[connection signal="pressed" from="Camera2D/complete/Button" to="." method="next_level"]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1819830528]
+anchor_mode = 0
+
+[node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("2_h8pr2")]
+
+[node name="complete" parent="Overlay" index="1" unique_id=576242334]
+next_scene = ExtResource("7_r78xb")
+
+[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("8_fvdud")]
+
+[node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("9_qkyi5")]
+can_ghost = true
+bobby_node = NodePath("../bobby")
+failsafe_node = NodePath("../failsafe")
+
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="failsafe" to="." method="its_okay"]
 [connection signal="body_entered" from="CamTrigger" to="." method="_on_cam_trigger_body_entered"]
 
-[editable path="Camera2D"]
-[editable path="Camera2D/complete"]
 [editable path="bobby"]
 [editable path="finish"]
+[editable path="Overlay"]
+[editable path="Overlay/complete"]
