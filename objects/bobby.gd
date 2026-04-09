@@ -53,7 +53,6 @@ func _on_body_entered(body: Node) -> void:
 			self.physics_material_override.bounce = 0.99
 		"TileHazards":
 			EXPLODES()
-
 # Physics anti-softlock by sunshinecoco12 on Discord
 func _physics_process(delta: float) -> void:
 	var collision_info: KinematicCollision2D = move_and_collide(linear_velocity * delta, true)

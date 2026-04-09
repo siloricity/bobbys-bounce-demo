@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="6_33ega"]
 [ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://overlay.tscn" id="7_orkke"]
 [ext_resource type="PackedScene" uid="uid://d87swp007vdp" path="res://textbox.tscn" id="8_orkke"]
+[ext_resource type="PackedScene" uid="uid://do025iq6erl7h" path="res://levels/level03.tscn" id="8_xfmka"]
 [ext_resource type="PackedScene" uid="uid://8y6n7q5jibey" path="res://level_code.tscn" id="9_n311a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cy10"]
@@ -97,6 +98,9 @@ wait_time = 8.0
 [node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("6_33ega")]
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("7_orkke")]
+
+[node name="complete" parent="Overlay" index="1" unique_id=576242334]
+next_scene = ExtResource("8_xfmka")
 
 [node name="textbox" parent="." unique_id=88885798 instance=ExtResource("8_orkke")]
 offset_left = 96.0

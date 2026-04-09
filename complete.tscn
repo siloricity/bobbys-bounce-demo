@@ -91,3 +91,5 @@ theme_override_styles/hover = ExtResource("3_bbj6d")
 theme_override_styles/disabled = ExtResource("3_bbj6d")
 theme_override_styles/focus = ExtResource("3_bbj6d")
 text = "NEXT"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
