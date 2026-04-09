@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bvedh32vmxx84" path="res://levels/level_02.gd" id="1_b4xcw"]
 [ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://objects/bobby.tscn" id="2_oig5u"]
 [ext_resource type="Texture2D" uid="uid://dy1esumpg467t" path="res://assets/tileset.png" id="3_33ega"]
-[ext_resource type="StyleBox" uid="uid://dl3qqsolfqsg2" path="res://assets/red_theme.tres" id="4_oig5u"]
 [ext_resource type="PackedScene" uid="uid://blp502j8tbuj0" path="res://objects/finish.tscn" id="4_orkke"]
 [ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="6_33ega"]
 [ext_resource type="PackedScene" uid="uid://dbpvo7k5pmeoc" path="res://overlay.tscn" id="7_orkke"]
@@ -62,46 +61,6 @@ scale = Vector2(0.4, 0.4)
 tile_map_data = PackedByteArray("AAACABAAAAABAAAAAAADABAAAAABAAAAAAAEABAAAAABAAAAAAAFABAAAAABAAAAAAAGABAAAAABAAAAAAAHABAAAAABAAAAAAAIABAAAAABAAAAAAAJABAAAAABAAAAAAAKABAAAAABAAAAAAALABAAAAABAAAAAAAMABAAAAABAAAAAAANABAAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_t65pu")
 
-[node name="Timer" type="Timer" parent="." unique_id=988185058]
-wait_time = 0.5
-
-[node name="retrybutton" type="Button" parent="." unique_id=621393029]
-modulate = Color(1, 1, 1, 0)
-z_index = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = 568.0
-offset_right = 313.0
-offset_bottom = 689.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 57
-theme_override_styles/normal = ExtResource("4_oig5u")
-theme_override_styles/pressed = ExtResource("4_oig5u")
-theme_override_styles/hover = ExtResource("4_oig5u")
-theme_override_styles/focus = ExtResource("4_oig5u")
-disabled = true
-text = "  retry ↺  "
-
-[node name="finish" parent="." unique_id=867881143 instance=ExtResource("4_orkke")]
-
-[node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
-polygon = PackedVector2Array(920, 680, 1240, 680, 1240, 608, 848, 608)
-
-[node name="failsafe" type="Timer" parent="." unique_id=1697904108]
-wait_time = 8.0
-
-[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("6_33ega")]
-
-[node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("7_orkke")]
-
-[node name="complete" parent="Overlay" index="1" unique_id=576242334]
-next_scene = ExtResource("8_xfmka")
-
 [node name="textbox" parent="." unique_id=88885798 instance=ExtResource("8_orkke")]
 offset_left = 96.0
 offset_top = 104.0
@@ -111,14 +70,27 @@ text = "reach the light
 area to win"
 text_size = 59
 
+[node name="finish" parent="." unique_id=867881143 instance=ExtResource("4_orkke")]
+
+[node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
+polygon = PackedVector2Array(920, 680, 1240, 680, 1240, 608, 848, 608)
+
+[node name="failsafe" type="Timer" parent="." unique_id=1697904108]
+wait_time = 8.0
+
+[node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("7_orkke")]
+
+[node name="complete" parent="Overlay" index="1" unique_id=576242334]
+next_scene = ExtResource("8_xfmka")
+
 [node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("9_n311a")]
 bobby_node = NodePath("../bobby")
 failsafe_node = NodePath("../failsafe")
 
+[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("6_33ega")]
+
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="death" from="bobby" to="." method="its_okay"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="retrybutton" to="." method="_on_retrybutton_pressed"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
 [connection signal="timeout" from="failsafe" to="." method="its_okay"]
 [connection signal="pressed" from="Overlay/complete/Button" to="." method="_on_comp_button_pressed"]
