@@ -123,4 +123,4 @@ theme_override_styles/focus = ExtResource("6_jhem3")
 text = "NEXT"
 
 [connection signal="pressed" from="retrybutton" to="retrybutton" method="_on_pressed"]
-[connection signal="pressed" from="complete/Button" to="complete" method="_on_button_pressed"]
+[connection signal="pressed" from="complete/Button" to="." method="_on_button_pressed"]
