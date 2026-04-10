@@ -2,6 +2,7 @@ extends Node
 @export var can_ghost: bool
 @export var bobby_node: bobby
 @export var failsafe_node: Timer
+@export var infinite: bool = false
 @onready var timer_node: Timer = $Timer
 
 func _input(_InputEvent):
@@ -10,7 +11,7 @@ func _input(_InputEvent):
 		if bobby_node.dead == true: pass
 		else:
 			timer_node.start()
-	if bobby_node.linear_velocity != Vector2.ZERO:
+	if bobby_node.linear_velocity != Vector2.ZERO and not infinite:
 		bobby_node.dead = true
 	if Input.is_action_just_released("click"):
 		timer_node.stop()

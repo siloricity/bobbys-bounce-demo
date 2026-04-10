@@ -85,12 +85,11 @@ auto_start = false
 
 [node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node") instance=ExtResource("7_kxijb")]
 bobby_node = NodePath("../bobby")
+infinite = true
 
 [node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("7_ed0h8")]
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("8_x5epe")]
-
-[node name="complete" parent="Overlay" index="1" unique_id=576242334]
 next_scene = ExtResource("9_x5epe")
 
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
@@ -98,9 +97,6 @@ next_scene = ExtResource("9_x5epe")
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="full_appear" from="textbox" to="." method="_on_textbox_full_appear"]
 [connection signal="full_appear" from="textbox2" to="." method="_on_textbox_2_full_appear"]
-[connection signal="pressed" from="Overlay/complete/Button" to="." method="_on_comp_button_pressed"]
 
 [editable path="finish"]
 [editable path="BGgradient"]
-[editable path="Overlay"]
-[editable path="Overlay/complete"]
