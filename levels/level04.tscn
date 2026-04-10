@@ -62,6 +62,9 @@ polygon = PackedVector2Array(1360, 840, 1360, 760, 1240, 760, 1240, 840)
 [node name="failsafe" type="Timer" parent="." unique_id=1392096894]
 wait_time = 8.0
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1819830528]
+anchor_mode = 0
+
 [node name="CamTrigger" type="Area2D" parent="." unique_id=1551796515]
 collision_layer = 0
 collision_mask = 2
@@ -70,9 +73,6 @@ collision_mask = 2
 position = Vector2(976, 480)
 shape = SubResource("RectangleShape2D_6r1wt")
 debug_color = Color(0.828125, 1, 0, 0.41960785)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1819830528]
-anchor_mode = 0
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("2_h8pr2")]
 next_scene = ExtResource("7_r78xb")
@@ -88,6 +88,4 @@ failsafe_node = NodePath("../failsafe")
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
 [connection signal="body_entered" from="CamTrigger" to="." method="_on_cam_trigger_body_entered"]
 
-[editable path="bobby"]
 [editable path="finish"]
-[editable path="Overlay"]

@@ -55,16 +55,6 @@ scale = Vector2(0.4, 0.4)
 tile_map_data = PackedByteArray("AAAAABEAAAAAAAAAAAABABEAAAAAAAAAAAACABEAAAAAAAAAAAADABEAAAAAAAAAAAAEABEAAAAAAAAAAAAFABEAAAAAAAAAAAAGABEAAAAAAAAAAAAHABEAAAAAAAAAAAAIABEAAAAAAAAAAAAJABEAAAAAAAAAAAAKABEAAAAAAAAAAAALABEAAAAAAAAAAAAMABEAAAAAAAAAAAANABEAAAAAAAAAAAAOABEAAAAAAAAAAAAPABEAAAAAAAAAAAAQABEAAAAAAAAAAAARABEAAAAAAAAAAAASABEAAAAAAAAAAAATABEAAAAAAAAAAAAUABEAAAAAAAAAAAAVABEAAAAAAAAAAAAWABEAAAAAAAAAAAAXABEAAAAAAAAAAAAYABEAAAAAAAAAAAAZABEAAAAAAAAAAAAaABEAAAAAAAAAAAAbABEAAAAAAAAAAAAcABEAAAAAAAAAAAAdABEAAAAAAAAAAAAeABEAAAAAAAAAAAAfABEAAAAAAAAAAAAfABAAAAAAAAAAAAAfAA8AAAAAAAAAAAAfAA4AAAAAAAAAAAAfAA0AAAAAAAAAAAAfAAwAAAAAAAAAAAAfAAsAAAAAAAAAAAAfAAoAAAAAAAAAAAAfAAkAAAAAAAAAAAAfAAgAAAAAAAAAAAAfAAcAAAAAAAAAAAAfAAYAAAAAAAAAAAAfAAUAAAAAAAAAAAAfAAQAAAAAAAAAAAAfAAMAAAAAAAAAAAAfAAIAAAAAAAAAAAAfAAEAAAAAAAAAAAAfAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAATAAAAAAAAAAAAAAASAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAAAABAAAAAAAAAAAAABABAAAAAAAAIAAAABAAEAAAAAAAIAAFAeAAEAAAAAAAIAADAeABAAAAAAAAIAAGA=")
 tile_set = SubResource("TileSet_t65pu")
 
-[node name="finish" parent="." unique_id=867881143 instance=ExtResource("4_emax3")]
-position = Vector2(-384, 752)
-
-[node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
-polygon = PackedVector2Array(232, 168, 1920, 168, 1920, 64, 232, 64)
-
-[node name="Timer2" type="Timer" parent="." unique_id=1560735701]
-wait_time = 4.0
-one_shot = true
-
 [node name="textbox" parent="." unique_id=88885798 instance=ExtResource("6_vxcwb")]
 offset_left = 104.0
 offset_top = 104.0
@@ -73,6 +63,10 @@ offset_bottom = 224.0
 text = "welcome to
 bobby's bounce"
 text_size = 59
+
+[node name="Timer2" type="Timer" parent="." unique_id=1560735701]
+wait_time = 4.0
+one_shot = true
 
 [node name="textbox2" parent="." unique_id=1627460778 instance=ExtResource("6_vxcwb")]
 offset_left = 104.0
@@ -83,20 +77,25 @@ text = "click to get started"
 text_size = 48
 auto_start = false
 
-[node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node") instance=ExtResource("7_kxijb")]
-bobby_node = NodePath("../bobby")
-infinite = true
+[node name="finish" parent="." unique_id=867881143 instance=ExtResource("4_emax3")]
+position = Vector2(-384, 752)
 
-[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("7_ed0h8")]
+[node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
+polygon = PackedVector2Array(232, 168, 1920, 168, 1920, 64, 232, 64)
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("8_x5epe")]
 next_scene = ExtResource("9_x5epe")
 
+[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("7_ed0h8")]
+
+[node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node") instance=ExtResource("7_kxijb")]
+bobby_node = NodePath("../bobby")
+infinite = true
+
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
-[connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="full_appear" from="textbox" to="." method="_on_textbox_full_appear"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="full_appear" from="textbox2" to="." method="_on_textbox_2_full_appear"]
+[connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
 
 [editable path="finish"]
-[editable path="BGgradient"]

@@ -32,8 +32,13 @@ scale = Vector2(0.4, 0.4)
 tile_map_data = PackedByteArray("AAAGAAkAAAABAAAAAAAEAAsAAAACAAAAAAADAAsAAAABAAAAAAACAAsAAAABAAAAAAABAAsAAAABAAAAAAAIAAsAAAACAAAAAAALAA0AAAACAAAAAAAMAA0AAAABAAAAAAANAA0AAAABAAAAAAAOAA0AAAABAAAAAAAPAA0AAAABAAAAAAAQAA0AAAABAAAAAAARAA0AAAABAAAAAAASAA0AAAABAAAAAAATAA0AAAACAAAAAAARAAcAAAACAAAAAAASAAcAAAABAAAAAAATAAcAAAABAAAAAAAUAAcAAAABAAAAAAATAAsAAAACAAAAADAUAAsAAAABAAAAADAVAAsAAAABAAAAADAUAA0AAAABAAAAAAAVAA0AAAABAAAAAAAKAAEAAAABAAAAADALAAEAAAABAAAAADAMAAEAAAACAAAAADAOAAEAAAACAAAAADAQAAEAAAABAAAAADAPAAEAAAABAAAAADANAAEAAAABAAAAADARAAMAAAACAAAAADASAAMAAAABAAAAADATAAMAAAABAAAAADAUAAMAAAABAAAAADAVAAMAAAABAAAAADAXAAMAAAABAAAAADAWAAMAAAABAAAAADA=")
 tile_set = ExtResource("5_m4wrk")
 
-[node name="Timer" type="Timer" parent="." unique_id=988185058]
-wait_time = 0.5
+[node name="Orb" parent="." unique_id=1994661621 instance=ExtResource("7_01x3r")]
+position = Vector2(400, 360)
+scale = Vector2(0.5, 0.5)
+
+[node name="Orb2" parent="." unique_id=704769536 instance=ExtResource("7_01x3r")]
+position = Vector2(736, 232)
+scale = Vector2(0.5, 0.5)
 
 [node name="textbox" parent="." unique_id=88885798 instance=ExtResource("6_ua7kj")]
 offset_left = 360.0
@@ -49,36 +54,20 @@ text_size = 51
 [node name="CollisionPolygon2D" parent="finish" index="0" unique_id=1539713274]
 polygon = PackedVector2Array(1200, 320, 1200, 240, 1080, 240, 1080, 320)
 
-[node name="Timer2" type="Timer" parent="." unique_id=1560735701]
-wait_time = 4.0
-one_shot = true
-
 [node name="failsafe" type="Timer" parent="." unique_id=1392096894]
 wait_time = 8.0
 
-[node name="Orb" parent="." unique_id=1994661621 instance=ExtResource("7_01x3r")]
-position = Vector2(400, 360)
-scale = Vector2(0.5, 0.5)
-
-[node name="Orb2" parent="." unique_id=704769536 instance=ExtResource("7_01x3r")]
-position = Vector2(736, 232)
-scale = Vector2(0.5, 0.5)
-
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("7_feb7w")]
 next_scene = ExtResource("8_cj3ca")
+
+[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("9_cj3ca")]
 
 [node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("8_m4wrk")]
 can_ghost = true
 bobby_node = NodePath("../bobby")
 failsafe_node = NodePath("../failsafe")
 
-[node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("9_cj3ca")]
-
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 
-[editable path="bobby"]
 [editable path="finish"]
-[editable path="Overlay"]
