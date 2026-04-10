@@ -33,17 +33,18 @@ func _process(_delta):
 	#release
 	if Input.is_action_just_released("click"):
 		if dead == false:
-			if global.refresh_jump == true:
-				var init = self.linear_velocity
-				self.linear_velocity = vel.limit_length(max_sling*2)
-				self.linear_velocity *= Vector2(999,999).limit_length(init.length())
-				global.refresh_jump = false
 			star.hide()
 			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 			tween.tween_property(line_guide,"position",Vector2.ZERO,0.1)
 			self.freeze = false
 			self.gravity_scale = 0
-			self.linear_velocity = vel.limit_length(max_sling*2)
+			if global.refresh_jump == true:
+				var init = self.linear_velocity
+				self.linear_velocity = vel.limit_length(max_sling*2)
+				self.linear_velocity *= 999
+				linear_velocity = self.linear_velocity.limit_length(init.length())
+				global.refresh_jump = false
+			else: self.linear_velocity = vel.limit_length(max_sling*2)
 			self.gravity_scale = 1
 # bounce or die
 func _on_body_entered(body: Node) -> void:
