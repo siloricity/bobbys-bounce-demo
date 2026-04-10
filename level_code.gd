@@ -11,7 +11,7 @@ func _input(_InputEvent):
 		if bobby_node.dead == true: pass
 		else:
 			timer_node.start()
-	if bobby_node.linear_velocity != Vector2.ZERO and not infinite:
+	if bobby_node.linear_velocity != Vector2.ZERO and not infinite and not global.refresh_jump:
 		bobby_node.dead = true
 	if Input.is_action_just_released("click"):
 		timer_node.stop()
