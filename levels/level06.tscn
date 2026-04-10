@@ -79,8 +79,6 @@ bobby_node = NodePath("../bobby")
 failsafe_node = NodePath("../failsafe")
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("10_g61hi")]
-
-[node name="complete" parent="Overlay" index="1" unique_id=576242334]
 next_scene = ExtResource("11_2hexr")
 
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
@@ -90,5 +88,3 @@ next_scene = ExtResource("11_2hexr")
 [editable path="finish"]
 [editable path="slippy"]
 [editable path="slippy2"]
-[editable path="Overlay"]
-[editable path="Overlay/complete"]

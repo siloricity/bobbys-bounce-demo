@@ -26,8 +26,6 @@ script = ExtResource("1_hl8yq")
 [node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("2_8mvo4")]
 
 [node name="Overlay" parent="." unique_id=2144790541 instance=ExtResource("2_4d047")]
-
-[node name="complete" parent="Overlay" index="1" unique_id=576242334]
 next_scene = ExtResource("4_u7pi8")
 
 [node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("12_yekxc")]
@@ -135,7 +133,6 @@ offset_bottom = 176.0
 text = "use levers to
 toggle  Things"
 
-[connection signal="pressed" from="Overlay/complete/Button" to="." method="next_level"]
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
@@ -144,8 +141,6 @@ toggle  Things"
 [connection signal="body_entered" from="CamTrigger" to="." method="_on_cam_trigger_body_entered"]
 
 [editable path="BGgradient"]
-[editable path="Overlay"]
-[editable path="Overlay/complete"]
 [editable path="bobby"]
 [editable path="finish"]
 [editable path="slippy"]

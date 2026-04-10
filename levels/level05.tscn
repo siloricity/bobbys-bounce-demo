@@ -65,8 +65,6 @@ position = Vector2(736, 232)
 scale = Vector2(0.5, 0.5)
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("7_feb7w")]
-
-[node name="complete" parent="Overlay" index="1" unique_id=576242334]
 next_scene = ExtResource("8_cj3ca")
 
 [node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("8_m4wrk")]
@@ -84,4 +82,3 @@ failsafe_node = NodePath("../failsafe")
 [editable path="bobby"]
 [editable path="finish"]
 [editable path="Overlay"]
-[editable path="Overlay/complete"]

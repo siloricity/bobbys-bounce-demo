@@ -75,8 +75,6 @@ debug_color = Color(0.828125, 1, 0, 0.41960785)
 anchor_mode = 0
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("2_h8pr2")]
-
-[node name="complete" parent="Overlay" index="1" unique_id=576242334]
 next_scene = ExtResource("7_r78xb")
 
 [node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("8_fvdud")]
@@ -93,4 +91,3 @@ failsafe_node = NodePath("../failsafe")
 [editable path="bobby"]
 [editable path="finish"]
 [editable path="Overlay"]
-[editable path="Overlay/complete"]

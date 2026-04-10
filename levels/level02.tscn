@@ -79,8 +79,6 @@ polygon = PackedVector2Array(920, 680, 1240, 680, 1240, 608, 848, 608)
 wait_time = 8.0
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("7_orkke")]
-
-[node name="complete" parent="Overlay" index="1" unique_id=576242334]
 next_scene = ExtResource("8_xfmka")
 
 [node name="level_code" parent="." unique_id=418214626 node_paths=PackedStringArray("bobby_node", "failsafe_node") instance=ExtResource("9_n311a")]
@@ -97,4 +95,3 @@ failsafe_node = NodePath("../failsafe")
 [editable path="bobby"]
 [editable path="finish"]
 [editable path="Overlay"]
-[editable path="Overlay/complete"]

@@ -80,8 +80,6 @@ polygon = PackedVector2Array(904, 560, 1000, 560, 880, 440, 784, 440)
 wait_time = 8.0
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("6_op2ih")]
-
-[node name="complete" parent="Overlay" index="1" unique_id=576242334]
 next_scene = ExtResource("7_ri3il")
 
 [node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("9_bsp3h")]
@@ -98,4 +96,3 @@ failsafe_node = NodePath("../failsafe")
 [editable path="bobby"]
 [editable path="finish"]
 [editable path="Overlay"]
-[editable path="Overlay/complete"]
