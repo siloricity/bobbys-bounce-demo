@@ -333,4 +333,4 @@ size_flags_stretch_ratio = 0.2
 [connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l7" to="." method="_on_but_pressed" binds= [7]]
 [connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l8" to="." method="_on_but_pressed" binds= [8]]
 [connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l9" to="." method="_on_but_pressed" binds= [9]]
-[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l10" to="." method="_on_but_pressed" binds= [8]]
+[connection signal="pressed" from="HBoxContainer2/ScrollContainer/VBoxContainer/HBoxContainer3/but_l10" to="." method="_on_but_pressed" binds= [10]]

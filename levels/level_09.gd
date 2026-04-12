@@ -8,6 +8,7 @@ func _on_finish_body_entered(body: Node2D) -> void:
 	if body == $bobby:
 		$bobby.dead = true
 		$Overlay.finish()
+		global.checkpoint_lv = 0
 		var dict = saveman.load_game().duplicate()
 		if dict["level09"] != 1:
 			dict["level09"] = 1
