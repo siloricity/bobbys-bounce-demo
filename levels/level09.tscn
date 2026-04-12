@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d87swp007vdp" path="res://textbox.tscn" id="6_i4tkj"]
 [ext_resource type="PackedScene" uid="uid://ci113q7ta1286" path="res://objects/orb_green.tscn" id="6_ycjkv"]
 [ext_resource type="PackedScene" uid="uid://5gyijwt4l06v" path="res://objects/slippy.tscn" id="8_icpok"]
-[ext_resource type="PackedScene" uid="uid://bbrs51ti3qr22" path="res://title.tscn" id="9_lmcsa"]
+[ext_resource type="PackedScene" uid="uid://c4joor5cal4rs" path="res://levels/level10.tscn" id="9_i4tkj"]
 [ext_resource type="PackedScene" uid="uid://cdmq7psr0y3bw" path="res://bg_gradient.tscn" id="10_sflmy"]
 [ext_resource type="PackedScene" uid="uid://8y6n7q5jibey" path="res://level_code.tscn" id="11_odbs7"]
 
@@ -66,7 +66,7 @@ polygon = PackedVector2Array(1240, 680, 1240, 640, 1176, 576, 896, 576, 1000, 68
 wait_time = 8.0
 
 [node name="Overlay" parent="." unique_id=405186498 instance=ExtResource("2_icpok")]
-next_scene = ExtResource("9_lmcsa")
+next_scene = ExtResource("9_i4tkj")
 
 [node name="BGgradient" parent="." unique_id=1234789619 instance=ExtResource("10_sflmy")]
 
