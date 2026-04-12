@@ -41,8 +41,11 @@ func _process(_delta):
 			if global.refresh_jump == true:
 				var init = self.linear_velocity
 				self.linear_velocity = vel.limit_length(max_sling*2)
-				self.linear_velocity *= 999
-				linear_velocity = self.linear_velocity.limit_length(init.length())
+				if init.length() > max_sling*2:
+					self.linear_velocity *= 999
+					self.linear_velocity = vel.limit_length(max_sling*2)
+				else:
+					linear_velocity = vel.limit_length(max_sling*2)
 				global.refresh_jump = false
 			else: self.linear_velocity = vel.limit_length(max_sling*2)
 			self.gravity_scale = 1
