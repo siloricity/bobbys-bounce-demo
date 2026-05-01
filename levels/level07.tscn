@@ -87,9 +87,8 @@ can_ghost = true
 bobby_node = NodePath("../bobby")
 failsafe_node = NodePath("../failsafe")
 
-[connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
-[connection signal="timeout" from="failsafe" to="." method="its_okay"]
 
 [editable path="slippy"]
 [editable path="finish"]
+[editable path="Overlay"]

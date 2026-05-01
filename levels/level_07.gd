@@ -12,11 +12,6 @@ func enable_checkpoint():
 	if global.checkpoint_lv == 1: pass
 	else:
 		global.checkpoint_lv += 1
-# spawn ghosts
-func _on_timer_timeout() -> void:
-	var ghost = $bobby.ghost.instantiate()
-	ghost.position = $bobby.position
-	add_child(ghost)
 # finish box signal
 func _on_finish_body_entered(body: Node2D) -> void:
 	if body == $bobby:

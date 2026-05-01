@@ -2,7 +2,7 @@ extends Node2D
 func _ready():
 	$slippy2.collision_layer = 0
 	$BlendingCircle/Panel.material.set_shader_parameter("a",Vector3(3,1,0.8))
-	$slippy2.modulate.a = 0.2
+	$slippy2.modulate.a = 0.5
 	$bobby.death.connect($Overlay/retrybutton.appear)
 # finish box signal
 func _on_finish_body_entered(body: Node2D) -> void:
@@ -25,11 +25,11 @@ func _on_button_pressed() -> void:
 			$slippy2.collision_layer = 1
 			$slippy2.modulate.a = 1
 			$slippy.collision_layer = 0
-			$slippy.modulate.a = 0.2
+			$slippy.modulate.a = 0.5
 			$BlendingCircle/Panel.material.set_shader_parameter("a",Vector3(1,3,0.8))
 		false:
 			$slippy2.collision_layer = 0
-			$slippy2.modulate.a = 0.2
+			$slippy2.modulate.a = 0.5
 			$slippy.collision_layer = 1
 			$slippy.modulate.a = 1
 			$BlendingCircle/Panel.material.set_shader_parameter("a",Vector3(3,1,0.8))
