@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="bobby's bounce"
+config/name="bobby's bounce - demo"
 run/main_scene="uid://bbrs51ti3qr22"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.6", "Forward Plus")

@@ -315,7 +315,7 @@ text = "10"
 [node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer2/ScrollContainer/VBoxContainer" unique_id=1367899415]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 42
-text = "Other Levels:"
+text = "more to come in the full release !"
 fit_content = true
 
 [node name="Control2" type="Control" parent="HBoxContainer2" unique_id=1910355970]

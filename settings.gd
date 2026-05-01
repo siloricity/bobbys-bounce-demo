@@ -5,6 +5,13 @@ func _ready():
 		$%ButtonFSCR.button_pressed = true
 		wind = true
 	update_wind()
+	if OS.get_name() == "Android":
+		$%ButtonFILE.modulate.a = 0.3
+		$VBoxContainer/HBoxContainer/VBoxContainer/savelocation/RichTextLabel.modulate.a = 0.3
+		$%ButtonFILE.disabled = true
+		$%ButtonFSCR.modulate.a = 0.3
+		$VBoxContainer/HBoxContainer/VBoxContainer/fullscreen/RichTextLabel.modulate.a = 0.3
+		$%ButtonFSCR.disabled = true
 func _on_button_fscr_toggled(toggled_on: bool) -> void:
 	match toggled_on:
 		true:
@@ -22,3 +29,5 @@ func update_wind():
 	match wind:
 		false:	$%ButtonFSCR.text = "disabled"
 		true:	$%ButtonFSCR.text = "enabled"
+func _on_button_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://title.tscn")

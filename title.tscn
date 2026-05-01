@@ -101,6 +101,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.29
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer/HBoxContainer" unique_id=1736804074]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.11
@@ -111,12 +112,34 @@ text = "[center]bobby's bounce"
 scroll_active = false
 vertical_alignment = 1
 
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer/HBoxContainer/RichTextLabel" unique_id=855787861]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 171.5
+offset_top = 15.0
+offset_right = 166.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.11
+theme_override_fonts/normal_font = ExtResource("1_y7k74")
+theme_override_font_sizes/normal_font_size = 47
+bbcode_enabled = true
+text = "-demo-"
+scroll_active = false
+vertical_alignment = 1
+
 [node name="LevelCount" type="RichTextLabel" parent="BoxContainer/HBoxContainer" unique_id=831832751]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.64
 theme_override_font_sizes/normal_font_size = 47
-text = "0 / 20 Levels Completed"
+text = "0 / 10 Levels Completed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -170,6 +193,7 @@ theme_override_styles/focus = ExtResource("4_3xoar")
 text = "bounce"
 
 [node name="butt_lore" type="Button" parent="BoxContainer/HBoxContainer2/VBoxContainer" unique_id=1497538152]
+modulate = Color(1, 1, 1, 0.09019608)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -195,9 +219,11 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("5_0824t")
 theme_override_styles/disabled = ExtResource("5_0824t")
 theme_override_styles/disabled_mirrored = ExtResource("5_0824t")
 theme_override_styles/focus = ExtResource("5_0824t")
+disabled = true
 text = "lore"
 
 [node name="butt_quit" type="Button" parent="BoxContainer/HBoxContainer2/VBoxContainer" unique_id=1452668567]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -257,5 +283,4 @@ libraries/ = SubResource("AnimationLibrary_0824t")
 
 [connection signal="pressed" from="BoxContainer/HBoxContainer/savebutton" to="." method="_on_savebutton_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxContainer2/VBoxContainer/butt_bounce" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="BoxContainer/HBoxContainer2/VBoxContainer/butt_lore" to="." method="_on_butt_lore_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxContainer2/VBoxContainer/butt_quit" to="." method="_on_butt_quit_pressed"]

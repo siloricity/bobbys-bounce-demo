@@ -7,4 +7,5 @@ func finish():
 func _ready():
 	$complete/AnimationPlayer.play("new_animation")
 func _on_button_pressed() -> void:
+	global.checkpoint_lv = 0
 	get_tree().change_scene_to_packed(next_scene)
